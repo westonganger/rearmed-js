@@ -1,0 +1,38 @@
+{
+  "name": "rearmed-js",
+  "version": "0.9.0",
+  "description": "A collection of helpful methods and monkey patches for Arrays, Strings, Objects and More. Method names based off of Ruby and use Lodash implementations where applicable for best performance.",
+  "main": "dist/rearmed-js.min.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:westonganger/rearmed-js.git"
+  },
+  "keywords": [
+    "monkey-patch",
+    "patch",
+    "override",
+    "lodash",
+    "javascript",
+    "js",
+    "ruby"
+  ],
+  "author": "Weston Ganger",
+  "license": "GNU GPL",
+  "bugs": {
+    "url": "https://github.com/westonganger/rearmed-js/issues"
+  },
+  "homepage": "https://github.com/westonganger/rearmed-js",
+  "dependencies": {
+    "lodash": ">=1.0"
+  },
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-uglify": "*",
+    "gulp-rename": "*",
+    "pump": "*",
+    "del": "*"
+  }
+}

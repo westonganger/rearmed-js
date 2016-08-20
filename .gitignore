@@ -1,0 +1,16 @@
+logs
+*.log
+pids
+*.pid
+*.seed
+lib-cov
+coverage
+.grunt
+.lock-wscript
+build/Release
+node_modules
+.DS_Store
+.idea
+out/
+bower_components
+node_modules
