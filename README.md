@@ -3,14 +3,13 @@
 
 # Install
 
-##### Bower
+#### Yarn, NPM, or Bower
 ```
-bower install rearmed-js
-```
+yarn add chosen-material-theme
 
-##### NPM
-```
-npm install rearmed-js
+npm install chosen-material-theme
+
+bower install chosen-material-theme
 ```
 
 #### Rails
