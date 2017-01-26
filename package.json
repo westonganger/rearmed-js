@@ -29,10 +29,11 @@
     "lodash": ">=1.0"
   },
   "devDependencies": {
-    "gulp": "*",
-    "gulp-uglify": "*",
-    "gulp-rename": "*",
-    "pump": "*",
-    "del": "*"
+    "gulp": "latest",
+    "gulp-uglify": "latest",
+    "gulp-rename": "latest",
+    "pump": "latest",
+    "del": "latest",
+    "mocha": "latest"
   }
 }

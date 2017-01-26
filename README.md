@@ -22,9 +22,95 @@ end
 
 # app/assets/javascripts/application.js
 /*
- *= require rearmed-js
+ *= require rearmed
 */
 ```
+
+# Methods Implemented
+
+### Array
+
+* any
+* all
+* compact
+* delete_if
+* delete_first
+* detect
+* dig
+* each (& each_with_index)
+* empty
+* not_empty
+* find
+* first
+* flatten
+* include
+* exclude
+* index
+* inGroupsOf
+* groupBy
+* join
+* last
+* max
+* min
+* reject
+* reverse
+* select
+* sum
+* sortBy
+* sort
+* uniq
+
+### String
+
+* capitalize
+* caseCmp(str)
+* chars
+* downcase
+* empty
+* endsWith
+* gsub
+* include
+* exclude
+* lstrip
+* reverse
+* rstrip
+* startsWith
+* strip
+* titleize(onlyFirstLetter=true)
+* toBool
+* upcase
+
+### Number
+
+* round
+* ceil
+* floor
+* isInteger
+* isDecimal
+* even
+* odd
+
+### Object (Hash)
+
+* any
+* all
+* compact
+* delete
+* dig
+* each
+* empty
+* except
+* hasKey
+* hasValue
+* include
+* exclude
+* join
+* keys
+* merge
+* only
+* reject
+* select
+* values
 
 # Credits
 Created by Weston Ganger - @westonganger
