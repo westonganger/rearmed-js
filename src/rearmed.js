@@ -1,6 +1,12 @@
 "use strict";
 
 (function(){
+  var Rearmed = {
+    isFunction: require('./rearmed/isFunction'),
+    isObjectLike: require('./rearmed/isObjectLike')
+  };
+
+
   /* ARRAY */
 
   Array.prototype.all = function(cb){
@@ -23,7 +29,7 @@
   Array.prototype.dig = function(){
     var val = this;
     for(var i=0;i<arguments.length;i++){
-      if(val instanceof Array || (val instanceof Object && val !== null)){
+      if(Rearmed.isObjectLike(val)){
         val = val[arguments[i]];
       }else{
         val = undefined;
@@ -58,11 +64,11 @@
     for(var i=0;i<this.length;i++){
       var val = this[i];
       var other = array[i]
-      if(this[i] instanceof Array && other instanceof Array){
+      if(Array.isArray(this[i]) && Array.isArray(other)){
         if(!val.equals(other)){
           return false;
         }
-      }else if(val instanceof Object && other instanceof Object){
+      }else if(Rearmed.isObjectLike(val) && Rearmed.isObjectLike(other)){
         if(!val.equals(other)){
           return false;
         }
@@ -90,7 +96,7 @@
   if(!Array.prototype.find){
     Array.prototype.find = function(cb){
       var item;
-      var hasCallback = cb instanceof Function
+      var hasCallback = Rearmed.isFunction(cb);
       for(var i=0;i<this.length;i++){
         var val = this[i];
         if(hasCallback ? cb(val, i) : (cb === val)){
@@ -403,6 +409,47 @@
 
 
   /* OBJECT */
+  Object.prototype.all = function(cb){
+    var bool = true;
+
+    for(var k in this){
+      if(!cb(k, this[k])){
+        bool = false;
+        break;
+      }
+    }
+    return bool;
+  };
+  Object.defineProperty(Object.prototype, "all", {enumerable: false});
+
+  Object.prototype.any = function(cb){
+    var bool = false;
+
+    for(var k in this){
+      if(cb(k, this[k])){
+        bool = true;
+        break;
+      }
+    }
+    return bool;
+  };
+  Object.defineProperty(Object.prototype, "any", {enumerable: false});
+
+  Object.prototype.compact = function(){
+    var arr = [];
+
+    for(var k in this){
+      var val = this[k];
+      if(val instanceof null || val instanceof undefined || ){
+        bool = true;
+        break;
+      }
+    }
+    return arr;
+  };
+  Object.defineProperty(Object.prototype, "compact", {enumerable: false});
+
+
   Object.prototype.equals = function(object2){
     for(propName in this){
       if(this.hasOwnProperty(propName) != object2.hasOwnProperty(propName)){
@@ -537,6 +584,11 @@
     }
   };
   Object.defineProperty(String.prototype, "strip", {enumerable: false});
+
+  String.prototype.sub = function(a,b){
+    //return this.split(a).join(b);
+  };
+  Object.defineProperty(String.prototype, "sub", {enumerable: false});
 
   String.prototype.titleize = function(onlyFirstLetter){
     return this.split(' ').map(function(str){
