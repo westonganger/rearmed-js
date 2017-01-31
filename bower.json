@@ -20,13 +20,11 @@
     "ruby"
   ],
   "author": "Weston Ganger",
-  "license": "GNU GPL",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/westonganger/rearmed-js/issues"
   },
   "homepage": "https://github.com/westonganger/rearmed-js",
-  "dependencies": {
-    "lodash": ">=1.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {}
 }

@@ -26,6 +26,10 @@ end
 */
 ```
 
+# Browser Support
+
+Supports Internet Explorer 9+ and all other browsers.
+
 # Methods Implemented
 
 ### Array
@@ -33,18 +37,18 @@ end
 * any
 * all
 * compact
-* delete_if
-* delete_first
 * detect
 * dig
-* each (& each_with_index)
+* each
 * empty
-* not_empty
+* equals
+* excludes
+* notEmpty
 * find
+* findIndex
 * first
 * flatten
-* include
-* exclude
+* includes
 * index
 * inGroupsOf
 * groupBy
@@ -55,40 +59,12 @@ end
 * reject
 * reverse
 * select
+* smartIncludes
+* smartExcludes
 * sum
 * sortBy
 * sort
 * uniq
-
-### String
-
-* capitalize
-* caseCmp(str)
-* chars
-* downcase
-* empty
-* endsWith
-* gsub
-* include
-* exclude
-* lstrip
-* reverse
-* rstrip
-* startsWith
-* strip
-* titleize(onlyFirstLetter=true)
-* toBool
-* upcase
-
-### Number
-
-* round
-* ceil
-* floor
-* isInteger
-* isDecimal
-* even
-* odd
 
 ### Object (Hash)
 
@@ -99,11 +75,12 @@ end
 * dig
 * each
 * empty
+* equals
+* excludes
 * except
 * hasKey
 * hasValue
 * include
-* exclude
 * join
 * keys
 * merge
@@ -112,5 +89,41 @@ end
 * select
 * values
 
+### Number
+
+* ceil
+* floor
+* isDecimal
+* isEven
+* isInteger
+* isOdd
+* round
+
+### String
+
+* capitalize
+* caseCmp(str)
+* chars
+* downcase
+* empty
+* endsWith
+* excludes
+* gsub
+* includes
+* lstrip
+* reverse
+* rstrip
+* startsWith
+* strip
+* titleize(onlyFirstLetter=true)
+* toBool
+* upcase
+
+# TODO
+* Warn when overriding existing method for each monkey patch
+* Modularize each method for custom build system
+
+
 # Credits
 Created by Weston Ganger - @westonganger
+<a href='https://ko-fi.com/A5071NK' target='_blank'><img height='32' style='border:0px;height:32px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=a' border='0' alt='Buy Me a Coffee' /></a> 
