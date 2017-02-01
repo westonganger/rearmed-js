@@ -1,0 +1,21 @@
+"use strict";
+
+require('./rearmed/string/capitalize');
+require('./rearmed/string/caseCmp');
+require('./rearmed/string/chars');
+require('./rearmed/string/downcase');
+require('./rearmed/string/empty');
+require('./rearmed/string/endsWith');
+require('./rearmed/string/excludes');
+require('./rearmed/string/gsub');
+require('./rearmed/string/includes');
+require('./rearmed/string/lstrip');
+require('./rearmed/string/notEmpty');
+require('./rearmed/string/reverse');
+require('./rearmed/string/rstrip');
+require('./rearmed/string/startsWith');
+require('./rearmed/string/strip');
+require('./rearmed/string/sub');
+require('./rearmed/string/titleize');
+require('./rearmed/string/toBool');
+require('./rearmed/string/upcase');

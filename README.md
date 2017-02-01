@@ -30,6 +30,27 @@ end
 */
 ```
 
+# Usage
+
+```javascript
+// require everything
+require('rearmed')
+// OR
+var Rearmed = require('rearmed); // if you want access to the core methods as well
+
+// require patches for certain object types only
+require('rearmed/array');
+require('rearmed/number');
+require('rearmed/object');
+require('rearmed/string');
+var Rearmed = require('rearmed/core');
+
+// require only the methods you want
+require('rearmed/array/reject');
+require('rearmed/array/select');
+require('rearmed/string/titleize');
+```
+
 # Methods Implemented
 
 ## Array
@@ -41,9 +62,9 @@ array.any(cb) // bool
 
 array.all(cb) // bool
 
-array.compact(badValues=[null, undefined]) // array
+array.compact(badValues=[null, undefined]) // array, accepts array or splat arguments
   
-array.dig(*args) // value
+array.dig(*args) // value, accepts splat arguments or array
 
 array.each(cb)
 
@@ -103,9 +124,9 @@ obj.all(cb) // bool
 
 obj.any(cb) // bool
 
-obj.compact(badValues=[null, undefined]) // object
+obj.compact(badValues=[null, undefined]) // object, accepts array or splat arguments
 
-obj.dig(*args) // object
+obj.dig(*args) // object, accepts splat arguments or array
 
 obj.each(cb)
 
@@ -179,6 +200,8 @@ str.includes(val, fromIndex=0) // bool
 
 str.lstrip() // string
 
+str.notEmpty() // bool
+
 str.reverse() // string
 
 str.rstrip() // string
@@ -196,30 +219,27 @@ str.toBool() // bool
 str.upcase() // string
 ```
 
+## Rearmed Core
+
+```javascript
+var Rearmed = require('rearmed');
+
+Rearmed.isFunction(myFunc) // bool
+
+Rearmed.isObjectLike(myObj) // bool, if typeof == 'object' and is not null
+```
+
 # Browser Support
 
 Supports Internet Explorer 9+ and all other browsers.
 
-# Custom Builds
-
-Visit this page to create your custom build. (https://solidfoundationwebdev.com/rearmed-js)[https://solidfoundationwebdev.com/rearmed-js]
-
-Alternatively you can just `require` only the methods you want. For example:
-
-```javascript
-require('rearmed/array/reject');
-require('rearmed/array/select');
-require('rearmed/string/titleize');
-```
 
 # TODO
 * Warn when overriding existing method for each monkey patch
-* Modularize each method for custom build system
-* Object merge
 * Test Object methods
 * Allow splat args
 * Test splat args
-* Objects duplicate not create simple object ???
+* Ensure all tests
 
 
 # Credits

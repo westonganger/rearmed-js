@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "console": "node -i -e \"require('./src/rearmed');\""
+    "console": "node -i -e \"var Rearmed = require('./src/rearmed');\"",
+    "test": "yarn run mocha"
   },
   "repository": {
     "type": "git",

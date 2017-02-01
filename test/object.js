@@ -44,24 +44,30 @@ describe('Object', function() {
       }), false);
     });
   });
-/*
-  describe('#', function() {
+
+  describe('#compact', function() {
     it('1', function() {
       var x = {};
-      assert.deepEqual(x.(), );
+      assert.deepEqual(x.compact(), {});
     });
 
     it('2', function() {
-      var x = {};
-      assert.deepEqual(x.(), );
+      var x = {foo: 'foo', bar: null};
+      assert.deepEqual(x.compact(), {foo: 'foo'});
     });
 
     it('3', function() {
-      var x = {};
-      assert.deepEqual(x.(), );
+      var x = {foo: 'foo', bar: ''};
+      assert.deepEqual(x.compact(null, undefined, ''), {foo: 'foo'});
+    });
+
+    it('4', function() {
+      var x = {foo: 'foo', bar: undefined, foo2: ''};
+      assert.deepEqual(x.compact(['']), {foo: 'foo', bar: undefined});
     });
   });
 
+/*
   describe('#', function() {
     it('1', function() {
       var x = {};

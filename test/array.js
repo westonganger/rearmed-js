@@ -48,7 +48,17 @@ describe('Array', function() {
 
     it('3', function() {
       var x = [false,null,0,'',undefined];
-      assert.deepEqual(x.compact(), [false, 0]);
+      assert.deepEqual(x.compact(), [false, '', 0]);
+    });
+
+    it('4', function() {
+      var x = [false,null,0,'',undefined];
+      assert.deepEqual(x.compact(null, undefined, ''), [false, 0]);
+    });
+
+    it('5', function() {
+      var x = [false,null,0,'',undefined];
+      assert.deepEqual(x.compact([null, undefined, '']), [false, 0]);
     });
   });
 
