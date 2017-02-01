@@ -1,9 +1,11 @@
 # rearmed-js
 <a href='https://ko-fi.com/A5071NK' target='_blank'><img height='32' style='border:0px;height:32px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=a' border='0' alt='Buy Me a Coffee' /></a> 
 
-This library is a collection of helpful methods and monkey patches for Arrays, Objects, Numbers, and Strings. 4.5kb minified and gzipped. 
+This library is a collection of helpful methods and monkey patches for Arrays, Objects, Numbers, and Strings.  
 
-Start writing your Javascript like you write your Ruby code! 
+Start writing your Javascript like you write your Ruby code! Works in the browser and in nodejs.
+
+4.5kb minified and gzipped.
 
 # Install
 
