@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+
   String.prototype.strip = function(){
     if(String.prototype.trim){
       return this.trim();

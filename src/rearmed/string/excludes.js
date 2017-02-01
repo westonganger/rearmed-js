@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+  
   String.prototype.excludes = function(x){
     return this.indexOf(x) === -1;
   }

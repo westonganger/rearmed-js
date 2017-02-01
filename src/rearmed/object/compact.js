@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+
   Object.prototype.compact = function(bad){
     bad = bad || [null, undefined];
     

@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+
   Object.prototype.notEmpty = function(){
     return this.length > 0;
   };

@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+
   String.prototype.sub = function(a,b){
     return this.replace(a, b);
   };

@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+
   Number.prototype.isDecimal = function(){
     if(Number.isInteger){
       return !Number.isInteger(this);

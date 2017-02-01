@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+
   String.prototype.titleize = function(onlyFirstLetter){
     return this.split(' ').map(function(str){
       var s = str.charAt(0).toUpperCase();

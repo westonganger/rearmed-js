@@ -1,6 +1,5 @@
-"use strict";
-
 (function(){
+  "use strict";
   Array.prototype.all = function(cb){
     return this.every(cb);
   };

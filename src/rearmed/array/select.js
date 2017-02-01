@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+
   Array.prototype.select = function(cb){
     return this.filter(cb);
   };

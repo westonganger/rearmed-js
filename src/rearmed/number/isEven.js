@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+
   Number.prototype.isEven = function(){
     return isFinite(this) && this % 2 === 0;
   };

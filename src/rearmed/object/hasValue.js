@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+
   Object.prototype.hasValue = function(val){
     var bool = false;
     for(var k in this){

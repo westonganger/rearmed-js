@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+
   var Rearmed = {
     isFunction: require('./../core/isFunction')
   };

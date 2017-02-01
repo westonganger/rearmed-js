@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+
   Array.prototype.excludes = function(x, fromIndex){
     var fromIndex = fromIndex || 0;
     var bool = true;

@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+
   String.prototype.reverse = function(){
     var array;
 

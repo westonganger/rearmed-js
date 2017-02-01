@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+
   Number.prototype.isInteger = function(){
     if(Number.isInteger){
       return Number.isInteger(this);

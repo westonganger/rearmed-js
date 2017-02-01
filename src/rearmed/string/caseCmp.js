@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+  
   String.prototype.caseCmp = function(x){
     return this.toLowerCase() === x.toLowerCase();
   };

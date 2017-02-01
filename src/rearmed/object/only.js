@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+
   Object.prototype.only = function(keys){
     keys = keys || [];
     

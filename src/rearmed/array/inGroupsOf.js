@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+
   Array.prototype.inGroupsOf = function(per, fillWith){
     var arr = []
     var per = Number(per);

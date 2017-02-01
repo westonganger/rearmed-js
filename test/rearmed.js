@@ -1,7 +1,7 @@
 var assert = require('assert');
 
-var isFunction = require('./../src/rearmed/isFunction');
-var isObjectLike = require('./../src/rearmed/isObjectLike');
+var isFunction = require('./../src/rearmed/core/isFunction');
+var isObjectLike = require('./../src/rearmed/core/isObjectLike');
 
 describe('Rearmed', function() {
   describe('#isFunction', function() {

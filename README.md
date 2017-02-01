@@ -1,7 +1,7 @@
 # rearmed-js
 <a href='https://ko-fi.com/A5071NK' target='_blank'><img height='32' style='border:0px;height:32px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=a' border='0' alt='Buy Me a Coffee' /></a> 
 
-This library is a collection of helpful methods and monkey patches for Arrays Objects, Numbers, and Strings.
+This library is a collection of helpful methods and monkey patches for Arrays, Objects, Numbers, and Strings.
 
 Start writing your Javascript like you write your Ruby code! 
 
@@ -232,6 +232,11 @@ Rearmed.isObjectLike(myObj) // bool, if typeof == 'object' and is not null
 # Browser Support
 
 Supports Internet Explorer 9+ and all other browsers.
+
+# Custom Builds
+Visit this page to create your custom build. (https://solidfoundationwebdev.com/rearmed-js)[https://solidfoundationwebdev.com/rearmed-js]
+
+Alternatively you can use require.
 
 
 # TODO

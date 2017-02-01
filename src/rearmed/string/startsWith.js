@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+
   String.prototype.startsWith = function(x){
     return this.substr(0, x.length) === x;
   };

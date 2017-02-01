@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+
   Array.prototype.first = function(){
     return this[0];
   };

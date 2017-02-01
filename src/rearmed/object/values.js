@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+
   Object.prototype.values = function(){
     var arr = [];
     for(var k in this){

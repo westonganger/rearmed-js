@@ -1,6 +1,5 @@
-"use strict";
-
 (function(){
+  "use strict";
   Array.prototype.compact = function(bad){
     bad = bad || [null, undefined];
     

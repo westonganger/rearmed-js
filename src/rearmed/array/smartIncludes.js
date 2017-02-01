@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+
   var Rearmed = {
     isObjectLike: require('./../core/isObjectLike')
   };

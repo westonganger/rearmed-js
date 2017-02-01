@@ -35,8 +35,11 @@
     "gulp": "latest",
     "gulp-uglify": "latest",
     "gulp-rename": "latest",
+    "gulp-buffer": "latest",
+    "vinyl-source-stream": "latest",
     "pump": "latest",
     "del": "latest",
-    "mocha": "latest"
+    "mocha": "latest",
+    "browserify": "latest"
   }
 }

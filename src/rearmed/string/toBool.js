@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+
   String.prototype.toBool = function(){
     if(this === 'true'){
       return true;

@@ -1,8 +1,9 @@
-"use strict";
-
 (function(){
+  "use strict";
+
   if(!Array.prototype.includes){
-    Array.prototype.includes = function(x, fromIndex=0){
+    Array.prototype.includes = function(x, fromIndex){
+      fromIndex = fromIndex || 0;
       var bool = false;
       for(var i=fromIndex;i<this.length;i++){
         if(this[i] === x){

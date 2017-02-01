@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+
   Array.prototype.each = function(cb){
     for(var i=0;i<this.length;i++){
       cb(this[i], i);

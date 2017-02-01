@@ -1,12 +1,13 @@
-"use strict";
-
 (function(){
-  Array.prototype.flatten = function(result=[]){
+  "use strict";
+
+  Array.prototype.flatten = function(result){
+    result = result || [];
     for(var i=0;i<this.length;i++){
       var val = this[i];
       if(Array.isArray(val)){
-        for(var i=0;i<val.length;i++){
-          var val2 = val[i];
+        for(var j=0;j<val.length;j++){
+          var val2 = val[j];
           if(Array.isArray(val2)){
             val2.flatten(result);
           }else{
@@ -14,7 +15,7 @@
           }
         }
       }else{
-        result.push(val)
+        result.push(val);
       }
     }
     return result;

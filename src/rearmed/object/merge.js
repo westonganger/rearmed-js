@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+
   Object.prototype.merge = function(obj){
     var item = {};
     for(var k in this){

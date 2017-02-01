@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+  
   String.prototype.chars = function(){
     if(Array.prototype.from){
       return Array.from(this);

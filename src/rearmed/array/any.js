@@ -1,6 +1,5 @@
-"use strict";
-
 (function(){
+  "use strict";
   Array.prototype.any = function(cb){
     return this.some(cb);
   };

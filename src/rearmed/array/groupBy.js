@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+
   Array.prototype.groupBy = function(cb){
     var hash = {};
     for(var i=0;i<this.length;i++){

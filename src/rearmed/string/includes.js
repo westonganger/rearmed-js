@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+
   if(!String.prototype.includes){
     String.prototype.includes = function(x){
       return this.indexOf(x) !== -1;

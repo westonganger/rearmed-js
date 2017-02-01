@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+
   Object.prototype.each = function(cb){
     for(var k in this){
       cb(k, this[k]);

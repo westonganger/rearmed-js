@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+
   Object.prototype.join = function(cb, delim){
     delim = delim || ', ';
     var str = '';

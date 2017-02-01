@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+
   String.prototype.lstrip = function(){
     return this.replace(/^\s+/g,'');
   };

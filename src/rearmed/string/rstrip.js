@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+
   String.prototype.rstrip = function(){
     return this.replace(/\s+$/g,'');
   };

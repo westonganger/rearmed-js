@@ -1,6 +1,6 @@
-"use strict";
-
 (function(){
+  "use strict";
+
   Object.prototype.select = function(cb){
     var obj = {};
     for(var k in this){
