@@ -1,8 +1,9 @@
 # rearmed-js
 <a href='https://ko-fi.com/A5071NK' target='_blank'><img height='32' style='border:0px;height:32px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=a' border='0' alt='Buy Me a Coffee' /></a> 
 
-Start writing your Javascript like you write your Ruby code! This library is a collection of helpful methods and monkey patches for Arrays Objects, Numbers, and Strings.
+This library is a collection of helpful methods and monkey patches for Arrays Objects, Numbers, and Strings.
 
+Start writing your Javascript like you write your Ruby code! 
 
 # Install
 
@@ -33,87 +34,167 @@ end
 
 ## Array
 
-* any(cb)
-* all(cb)
-* compact
-* dig(*args)
-* each(cb)
-* empty
-* equals(array)
-* excludes(val, fromIndex=0)
-* notEmpty
-* find(cb_or_val)
-* findIndex(cb_or_val)
-* first
-* flatten
-* includes(val, fromIndex=0)
-* index(cb_or_val)
-* inGroupsOf(int, fillWith=false)
-* groupBy(cb)
-* last
-* max(cb=null)
-* maxBy(cb=null)
-* min(cb=null)
-* minBy(cb=null)
-* reject(cb)
-* select(cb)
-* smartIncludes(val, fromIndex=0) // uses `equals` method to compare if item is Array or Object
-* smartExcludes(val, fromIndex=0) // uses `equals` method to compare if item is Array or Object
-* sum(cb=null)
-* uniq(cb=null)
+```javascript
+var array = [];
+
+array.any(cb) // bool
+
+array.all(cb) // bool
+
+array.compact(badValues=[null, undefined]) // array
+  
+array.dig(*args) // value
+
+array.each(cb)
+
+array.empty() // bool
+
+array.equals(array) // bool
+
+array.excludes(val, fromIndex=0) // bool
+
+array.notEmpty() // bool
+
+array.find(cb_or_val) // value
+
+array.findIndex(cb_or_val) // integer, undefined if not found
+
+array.first() // value
+
+array.flatten() // array
+
+array.includes(val, fromIndex=0) // bool
+
+array.index(cb_or_val) // integer, undefined if not found
+
+array.inGroupsOf(int, fillWith=false) // nested array
+
+array.groupBy(cb) // nested array
+
+array.last // value
+
+array.max(cb=null) // value
+
+array.maxBy(cb=null) // value
+
+array.min(cb=null) // value
+
+array.minBy(cb=null) // value
+
+array.reject(cb) // array
+
+array.select(cb) // array
+
+array.smartIncludes(val, fromIndex=0) // bool, uses `equals` method to compare if item is Array or Object
+
+array.smartExcludes(val, fromIndex=0) // bool, uses `equals` method to compare if item is Array or Object
+
+array.sum(cb=null) // number
+
+array.uniq(cb=null) // array
+```
 
 ## Object (Hash)
 
-* all(cb)
-* any(cb)
-* compact
-* delete
-* dig(*args)
-* each(cb)
-* empty
-* equals(object)
-* excludes ???
-* except(*keys)
-* hasKey
-* hasValue
-* includes ???
-* join
-* merge(object)
-* only(*args)
-* reject(cb)
-* select(cb)
-* values
+```javascript
+var obj = {};
+
+obj.all(cb) // bool
+
+obj.any(cb) // bool
+
+obj.compact(badValues=[null, undefined]) // object
+
+obj.dig(*args) // object
+
+obj.each(cb)
+
+obj.empty() // bool
+
+obj.equals(obj) // bool
+
+obj.except(*keys) // object, accepts keys as splat arguments or an array
+
+obj.hasKey() // bool
+
+obj.hasValue() // bool
+
+obj.join() // string
+
+obj.keys() // array
+
+obj.merge(obj) // object
+
+obj.only(*keys) // object, accepts keys as splat arguments or an array
+
+obj.reject(cb) // object
+
+obj.select(cb) // object
+
+obj.values() // array
+```
 
 ## Number
 
-* ceil
-* floor
-* isDecimal
-* isEven
-* isInteger
-* isOdd
-* round
+```javascript
+var num = 8.5;
+
+num.ceil() // number
+
+num.floor() // number
+
+num.isDecimal() // bool
+
+num.isEven() //bool
+
+num.isInteger() //bool
+
+num.isOdd() // bool
+
+num.round() // number
+```
 
 ## String
 
-* capitalize
-* caseCmp(str)
-* chars
-* downcase
-* empty
-* endsWith(val)
-* excludes(val, fromIndex=0)
-* gsub(str, toStr)
-* includes(val, fromIndex=0)
-* lstrip
-* reverse
-* rstrip
-* startsWith(val)
-* strip
-* sub(str, toStr)
-* titleize(onlyFirstLetters=true)
-* toBool
-* upcase
+```javascript
+var str = 'Hello World':
+
+str.capitalize() // string
+
+str.caseCmp(str) // bool
+
+str.chars() // array
+
+str.downcase() // string
+
+str.empty() // bool
+
+str.endsWith(val) // bool
+
+str.excludes(val, fromIndex=0) // bool
+
+str.gsub(str, toStr) // string
+
+str.includes(val, fromIndex=0) // bool
+
+str.lstrip() // string
+
+str.reverse() // string
+
+str.rstrip() // string
+
+str.startsWith(val) // bool
+
+str.strip() // string
+
+str.sub(str, toStr) // string
+
+str.titleize(onlyFirstLetters=true) // string
+
+str.toBool() // bool
+
+str.upcase() // string
+```
 
 # Browser Support
 
@@ -134,6 +215,11 @@ require('rearmed/string/titleize');
 # TODO
 * Warn when overriding existing method for each monkey patch
 * Modularize each method for custom build system
+* Object merge
+* Test Object methods
+* Allow splat args
+* Test splat args
+* Objects duplicate not create simple object ???
 
 
 # Credits

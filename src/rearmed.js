@@ -19,9 +19,17 @@
   };
   Object.defineProperty(Array.prototype, "any", {enumerable: false});
 
-  Array.prototype.compact = function(){
+  Array.prototype.compact = function(bad){
+    bad = bad || [null, undefined];
     return this.filter(function(x){
-      return (x !== null) && (x !== undefined) && (x !== '')
+      var bool = true;
+      for(var i=-;i<bad.length;i++){
+        if(x ==== bad[i]){
+          bool = false;
+          break;
+        }
+      }
+      return bool;
     });
   };
   Object.defineProperty(Array.prototype, "compact", {enumerable: false});
@@ -112,7 +120,7 @@
   if(!Array.prototype.findIndex){
     Array.prototype.findIndex = function(cb){
       var index = -1;
-      var hasCallback = cb instanceof Function
+      var hasCallback = Rearmed.isFunction(cb);
       for(var i=0;i<this.length;i++){
         if(hasCallback ? cb(this[i], i) : (cb === this[i])){
           index = i;
@@ -217,7 +225,7 @@
 
   Array.prototype.max = function(cb){
     var max;
-    var hasCallback = cb instanceof Function;
+    var hasCallback = Rearmed.isFunction(cb);
     for(var i=0;i<this.length;i++){
       var val = hasCallback ? cb(this[i], i) : this[i];
 
@@ -231,7 +239,7 @@
 
   Array.prototype.maxBy = function(cb){
     var current, max;
-    var hasCallback = cb instanceof Function;
+    var hasCallback = Rearmed.isFunction(cb);
     for(var i=0;i<this.length;i++){
       var item = this[i];
       var val = hasCallback ? cb(item, i) : item;
@@ -247,7 +255,7 @@
 
   Array.prototype.min = function(cb){
     var min;
-    var hasCallback = cb instanceof Function;
+    var hasCallback = Rearmed.isFunction(cb);
     for(var i=0;i<this.length;i++){
       var val = hasCallback ? cb(this[i], i) : this[i];
 
@@ -261,7 +269,7 @@
 
   Array.prototype.minBy = function(cb){
     var current, min;
-    var hasCallback = cb instanceof Function;
+    var hasCallback = Rearmed.isFunction(cb);
     for(var i=0;i<this.length;i++){
       var item = this[i];
       var val = hasCallback ? cb(item, i) : item;
@@ -285,7 +293,7 @@
     var bool = true;
     for(var i=fromIndex;i<this.length;i++){
       var val = this[i];
-      if(val instanceof Array || (val instanceof Object && val !== null)){
+      if(Rearmed.isObjectLike(val)){
         if(val.equals(x)){
           bool = false;
           break;
@@ -304,7 +312,7 @@
     var bool = false;
     for(var i=fromIndex;i<this.length;i++){
       var val = this[i];
-      if(val instanceof Array || (val instanceof Object && val !== null)){
+      if(Rearmed.isObjectLike(val)){
         if(val.equals(x)){
           bool = true;
           break;
@@ -332,7 +340,7 @@
 
   Array.prototype.sum = function(cb){
     var sum = 0;
-    var hasCallback = cb instanceof Function;
+    var hasCallback = Rearmed.isFunction(cb);
     for(var i=0;i<this.length;i++){
       var val = hasCallback ? cb(this[i], i) : this[i];
 
@@ -348,7 +356,7 @@
 
   Array.prototype.uniq = function(cb){
     var uniqItems = [];
-    var hasCallback = cb instanceof Function;
+    var hasCallback = Rearmed.isFunction(cb);
 
     return this.filter(function(x,i){
       var val = hasCallback ? cb(x,i) : x;
@@ -435,33 +443,68 @@
   };
   Object.defineProperty(Object.prototype, "any", {enumerable: false});
 
-  Object.prototype.compact = function(){
+  Object.prototype.compact = function(bad){
+    bad = bad || [null, undefined];
     var arr = [];
 
     for(var k in this){
       var val = this[k];
-      if(val instanceof null || val instanceof undefined || ){
-        bool = true;
-        break;
+      var bool = true;
+      for(var i=0;i<bad.length;i++){
+        if(val === bad[i]){
+          bool = false; 
+          break;
+        }
+
+      }
+      if(bool){
+        arr.push(val);
       }
     }
     return arr;
   };
   Object.defineProperty(Object.prototype, "compact", {enumerable: false});
 
+  Object.prototype.dig = function(){
+    var val = this;
+    for(var k in arguments){
+      if(Rearmed.isObjectLike(val)){
+        val = val[arguments[k]];
+      }else{
+        val = undefined;
+        break;
+      }
+    }
+    return val;
+  };
+  Object.defineProperty(Object.prototype, "dig", {enumerable: false});
+
+  Object.prototype.each = function(cb){
+    for(var k in this){
+      cb(k, this[k]);
+    }
+  };
+  Object.defineProperty(Object.prototype, "each", {enumerable: false});
+
+  Object.prototype.empty = function(){
+    return this.length === 0;
+  };
+  Object.defineProperty(Object.prototype, "empty", {enumerable: false});
 
   Object.prototype.equals = function(object2){
-    for(propName in this){
+    for(var propName in this){
       if(this.hasOwnProperty(propName) != object2.hasOwnProperty(propName)){
         return false;
       }else if(typeof this[propName] != typeof object2[propName]){
         return false;
       }
     }
-    for(propName in object2){
+    for(var propName in object2){
+      var val = this[propName];
+      var other = object2[propName];
       if(this.hasOwnProperty(propName) != object2.hasOwnProperty(propName)){
         return false;
-      }else if(typeof this[propName] != typeof object2[propName]){
+      }else if(typeof val != typeof other){
         return false;
       }
 
@@ -469,20 +512,147 @@
         continue;
       }
 
-      if(this[propName] instanceof Array && object2[propName] instanceof Array){
-        if(!this[propName].equals(object2[propName])){
+      if(Array.isArray(val) && Array.isArray(other)){
+        if(!val.equals(other)){
           return false;
         }
-      }else if(this[propName] instanceof Object && object2[propName] instanceof Object){
-        if(!this[propName].equals(object2[propName])){
+      }else if(Rearmed.isObjectLike(val) && Rearmed.isObjectLike(other)){
+        if(!val.equals(other)){
           return false;
         }
-      }else if(this[propName] != object2[propName]){
+      }else if(val != other){
        return false;
       }
     }
     return true;
   }
+
+  Object.prototype.except = function(keys){
+    keys = keys || [];
+    
+    if(arguments.length >= 2 && !Array.isArray(keys)){
+      keys = arguments;
+    }
+    var obj = {};
+    for(var k in this){
+      for(var i=0;i<keys.length;i++){
+        if(k !== keys[i]){
+          obj[k] = val;
+        }
+      }
+    }
+    return obj;
+  };
+  Object.defineProperty(Object.prototype, "except", {enumerable: false});
+
+  Object.prototype.hasKey = function(key){
+    var bool = false;
+    for(var k in this){
+      if(k === key){
+        bool = true;
+        break;
+      }
+    }
+    return bool;
+  };
+  Object.defineProperty(Object.prototype, "hasKey", {enumerable: false});
+
+  Object.prototype.hasValue = function(val){
+    var bool = false;
+    for(var k in this){
+      if(this[k] === val){
+        bool = true;
+        break;
+      }
+    }
+    return bool;
+  };
+  Object.defineProperty(Object.prototype, "hasValue", {enumerable: false});
+
+  Object.prototype.join = function(cb, delim){
+    delim = delim || ', ';
+    var str = '';
+    var first = true;
+    for(var k in this){
+      if(first){
+        str += delim;
+        first = false;
+      }
+      str += this[k];
+    }
+    return str;
+  };
+  Object.defineProperty(Object.prototype, "join", {enumerable: false});
+
+  Object.prototype.merge = function(){
+
+  };
+  Object.defineProperty(Object.prototype, "merge", {enumerable: false});
+
+  Object.prototype.notEmpty = function(){
+    return this.length > 0;
+  };
+  Object.defineProperty(Object.prototype, "notEmpty", {enumerable: false});
+
+  Object.prototype.keys = function(){
+    var arr = [];
+    for(var k in this){
+      arr.push(k);
+    }
+    return arr;
+  };
+  Object.defineProperty(Object.prototype, "keys", {enumerable: false});
+
+  Object.prototype.only = function(keys){
+    keys = keys || [];
+    
+    if(arguments.length >= 2 && !Array.isArray(keys)){
+      keys = arguments;
+    }
+    var obj = {};
+    for(var k in this){
+      for(var i=0;i<keys.length;i++){
+        if(k === keys[i]){
+          obj[k] = val;
+        }
+      }
+    }
+    return obj;
+  };
+  Object.defineProperty(Object.prototype, "only", {enumerable: false});
+
+  Object.prototype.reject = function(cb){
+    var obj = {};
+    for(var k in this){
+      var val = this[k];
+      if(!cb(k, val){
+        obj[k] = val;
+      }
+    }
+    return obj;
+  };
+  Object.defineProperty(Object.prototype, "reject", {enumerable: false});
+
+  Object.prototype.select = function(cb){
+    var obj = {};
+    for(var k in this){
+      var val = this[k];
+      if(cb(k, val){
+        obj[k] = val;
+      }
+    }
+    return obj;
+  };
+  Object.defineProperty(Object.prototype, "select", {enumerable: false});
+
+  Object.prototype.values = function(){
+    var arr = [];
+    for(var k in this){
+      arr.push(this[k]);
+    }
+    return arr;
+  };
+  Object.defineProperty(Object.prototype, "values", {enumerable: false});
   /* END OBJECT */
 
 
