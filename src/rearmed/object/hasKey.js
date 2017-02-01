@@ -1,6 +1,11 @@
 (function(){
   "use strict";
 
+  var warn = require('./../core/warn');
+  if(Object.prototype.hasKey){
+    warn(Object, 'hasKey');
+  }
+
   Object.prototype.hasKey = function(key){
     var bool = false;
     for(var k in this){
@@ -11,5 +16,6 @@
     }
     return bool;
   };
+
   Object.defineProperty(Object.prototype, "hasKey", {enumerable: false});
 }(this));

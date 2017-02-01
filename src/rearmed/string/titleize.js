@@ -1,6 +1,11 @@
 (function(){
   "use strict";
 
+  var warn = require('./../core/warn');
+  if(String.prototype.titleize){
+    warn(String, 'titleize');
+  }
+
   String.prototype.titleize = function(onlyFirstLetter){
     return this.split(' ').map(function(str){
       var s = str.charAt(0).toUpperCase();
@@ -12,5 +17,6 @@
       return s;
     }).join(' ');
   };
+
   Object.defineProperty(String.prototype, "titleize", {enumerable: false});
 }(this));

@@ -1,6 +1,11 @@
 (function(){
   "use strict";
 
+  var warn = require('./../core/warn');
+  if(String.prototype.reverse){
+    warn(String, 'reverse');
+  }
+
   String.prototype.reverse = function(){
     var array;
 
@@ -16,5 +21,6 @@
 
     return array.join('');
   };
+
   Object.defineProperty(String.prototype, "reverse", {enumerable: false});
 }(this));

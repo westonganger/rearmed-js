@@ -1,6 +1,11 @@
 (function(){
   "use strict";
 
+  var warn = require('./../core/warn');
+  if(Object.prototype.any){
+    warn(Object, 'any');
+  }
+
   Object.prototype.any = function(cb){
     var bool = false;
 
@@ -12,5 +17,6 @@
     }
     return bool;
   };
+
   Object.defineProperty(Object.prototype, "any", {enumerable: false});
 }(this));

@@ -43,7 +43,7 @@ describe('Array', function() {
 
     it('2', function() {
       var x = [1,null,'',undefined,5];
-      assert.deepEqual(x.compact(), [1,5]);
+      assert.deepEqual(x.compact(), [1,'',5]);
     });
 
     it('3', function() {
@@ -53,12 +53,12 @@ describe('Array', function() {
 
     it('4', function() {
       var x = [false,null,0,'',undefined];
-      assert.deepEqual(x.compact(null, undefined, ''), [false, 0]);
+      assert.deepEqual(x.compact([null, undefined, '']), [false, 0]);
     });
 
-    it('5', function() {
+    it('Accepts splat arguments', function() {
       var x = [false,null,0,'',undefined];
-      assert.deepEqual(x.compact([null, undefined, '']), [false, 0]);
+      assert.deepEqual(x.compact("", null, undefined), [false, 0]);
     });
   });
 
@@ -71,6 +71,12 @@ describe('Array', function() {
     it('2', function() {
       var x = [1, {foo: [1,2,{bar: [1,2,3]}]}];
       assert.equal(x.dig(1, 'bar', 2, 'bar', 2), null);
+    });
+
+    it('Accepts array argument', function() {
+      var x = [1, {foo: [1,2,{bar: [1,2,3]}]}];
+      var keys = [1, 'bar', 2, 'bar', 2];
+      assert.equal(x.dig(keys), null);
     });
   });
 

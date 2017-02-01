@@ -1,6 +1,11 @@
 (function(){
   "use strict";
 
+  var warn = require('./../core/warn');
+  if(Array.prototype.inGroupsOf){
+    warn(Array, 'inGroupsOf');
+  }
+
   Array.prototype.inGroupsOf = function(per, fillWith){
     var arr = []
     var per = Number(per);
@@ -34,5 +39,6 @@
 
     return arr;
   };
+
   Object.defineProperty(Array.prototype, "inGroupsOf", {enumerable: false});
 }(this));

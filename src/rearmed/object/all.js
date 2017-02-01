@@ -1,6 +1,11 @@
 (function(){
   "use strict";
 
+  var warn = require('./../core/warn');
+  if(Object.prototype.all){
+    warn(Object, 'all');
+  }
+
   Object.prototype.all = function(cb){
     var bool = true;
 
@@ -12,5 +17,6 @@
     }
     return bool;
   };
+
   Object.defineProperty(Object.prototype, "all", {enumerable: false});
 }(this));

@@ -5,6 +5,11 @@
     isFunction: require('./../core/isFunction')
   };
 
+  var warn = require('./../core/warn');
+  if(Array.prototype.sum){
+    warn(Array, 'sum');
+  }
+
   Array.prototype.sum = function(cb){
     var sum = 0;
     var hasCallback = Rearmed.isFunction(cb);
@@ -19,5 +24,6 @@
     }
     return sum;
   };
+
   Object.defineProperty(Array.prototype, "sum", {enumerable: false});
 }(this));

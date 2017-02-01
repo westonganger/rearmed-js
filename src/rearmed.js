@@ -1,5 +1,3 @@
-"use strict";
-
 require('./rearmed/array');
 require('./rearmed/number');
 require('./rearmed/object');

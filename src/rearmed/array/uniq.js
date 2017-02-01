@@ -5,6 +5,11 @@
     isFunction: require('./../core/isFunction')
   };
 
+  var warn = require('./../core/warn');
+  if(Array.prototype.uniq){
+    warn(Array, 'uniq');
+  }
+
   Array.prototype.uniq = function(cb){
     var uniqItems = [];
     var hasCallback = Rearmed.isFunction(cb);
@@ -17,5 +22,6 @@
       }
     });
   };
+
   Object.defineProperty(Array.prototype, "uniq", {enumerable: false});
 }(this));

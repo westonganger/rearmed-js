@@ -5,6 +5,11 @@
     isFunction: require('./../core/isFunction')
   };
 
+  var warn = require('./../core/warn');
+  if(Array.prototype.max){
+    warn(Array, 'max');
+  }
+
   Array.prototype.max = function(cb){
     var max;
     var hasCallback = Rearmed.isFunction(cb);
@@ -17,5 +22,6 @@
     }
     return max;
   };
+
   Object.defineProperty(Array.prototype, "max", {enumerable: false});
 }(this));

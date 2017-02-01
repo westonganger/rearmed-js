@@ -1,5 +1,3 @@
-"use strict";
-
 require('./object/all');
 require('./object/any');
 require('./object/compact');

@@ -1,6 +1,11 @@
 (function(){
   "use strict";
   
+  var warn = require('./../core/warn');
+  if(String.prototype.chars){
+    warn(String, 'chars');
+  }
+
   String.prototype.chars = function(){
     if(Array.prototype.from){
       return Array.from(this);
@@ -14,5 +19,6 @@
       return array;
     }
   };
+
   Object.defineProperty(String.prototype, "chars", {enumerable: false});
 }(this));

@@ -1,5 +1,3 @@
-"use strict";
-
 require('./number/ceil');
 require('./number/floor');
 require('./number/isDecimal');

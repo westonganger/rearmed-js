@@ -14,7 +14,7 @@ gulp.task('bundle', [], function(cb){
   del(filename);
   pump([
     browserify('./src/rearmed.js', {
-      debug: true
+      debug: true,
     }).bundle(),
     source(filename),
     buffer(),

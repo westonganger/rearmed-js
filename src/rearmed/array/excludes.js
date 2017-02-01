@@ -1,6 +1,11 @@
 (function(){
   "use strict";
 
+  var warn = require('./../core/warn');
+  if(Array.prototype.excludes){
+    warn(Array, 'excludes');
+  }
+
   Array.prototype.excludes = function(x, fromIndex){
     var fromIndex = fromIndex || 0;
     var bool = true;
@@ -12,5 +17,6 @@
     }
     return bool;
   };
+
   Object.defineProperty(Array.prototype, "excludes", {enumerable: false});
 }(this));

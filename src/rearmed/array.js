@@ -1,5 +1,3 @@
-"use strict";
-
 require('./array/all');
 require('./array/any');
 require('./array/compact');

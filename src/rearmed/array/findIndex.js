@@ -17,6 +17,7 @@
       }
       return index;
     };
+
     Object.defineProperty(Array.prototype, "findIndex", {enumerable: false});
   }
 }(this));

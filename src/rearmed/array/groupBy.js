@@ -1,6 +1,11 @@
 (function(){
   "use strict";
 
+  var warn = require('./../core/warn');
+  if(Array.prototype.groupBy){
+    warn(Array, 'groupBy');
+  }
+
   Array.prototype.groupBy = function(cb){
     var hash = {};
     for(var i=0;i<this.length;i++){
@@ -11,5 +16,6 @@
     }
     return hash;
   };
+
   Object.defineProperty(Array.prototype, "groupBy", {enumerable: false});
 }(this));

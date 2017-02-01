@@ -5,6 +5,11 @@
     isObjectLike: require('./../core/isObjectLike')
   };
 
+  var warn = require('./../core/warn');
+  if(Object.prototype.equals){
+    warn(Object, 'equals');
+  }
+
   Object.prototype.equals = function(object2){
     for(var propName in this){
       if(this.hasOwnProperty(propName) != object2.hasOwnProperty(propName)){
@@ -40,5 +45,6 @@
     }
     return true;
   };
+
   Object.defineProperty(Object.prototype, "equals", {enumerable: false});
 }(this));

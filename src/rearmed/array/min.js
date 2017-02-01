@@ -5,6 +5,11 @@
     isFunction: require('./../core/isFunction')
   };
 
+  var warn = require('./../core/warn');
+  if(Array.prototype.min){
+    warn(Array, 'min');
+  }
+
   Array.prototype.min = function(cb){
     var min;
     var hasCallback = Rearmed.isFunction(cb);
@@ -17,5 +22,6 @@
     }
     return min;
   };
+
   Object.defineProperty(Array.prototype, "min", {enumerable: false});
 }(this));

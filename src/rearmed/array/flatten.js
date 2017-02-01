@@ -1,6 +1,11 @@
 (function(){
   "use strict";
 
+  var warn = require('./../core/warn');
+  if(Array.prototype.flatten){
+    warn(Array, 'flatten');
+  }
+
   Array.prototype.flatten = function(result){
     result = result || [];
     for(var i=0;i<this.length;i++){
@@ -20,5 +25,6 @@
     }
     return result;
   };
+
   Object.defineProperty(Array.prototype, "flatten", {enumerable: false});
 }(this));

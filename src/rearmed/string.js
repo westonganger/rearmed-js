@@ -1,5 +1,3 @@
-"use strict";
-
 require('./string/capitalize');
 require('./string/caseCmp');
 require('./string/chars');

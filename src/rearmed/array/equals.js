@@ -5,6 +5,11 @@
     isObjectLike: require('./../core/isObjectLike')
   };
 
+  var warn = require('./../core/warn');
+  if(Array.prototype.equals){
+    warn(Array, 'equals');
+  }
+
   Array.prototype.equals = function(array){
     if(!array){
       return false;
@@ -31,5 +36,6 @@
     }
     return true;
   }
+
   Object.defineProperty(Array.prototype, "equals", {enumerable: false});
 }(this));

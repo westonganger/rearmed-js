@@ -13,6 +13,7 @@
       }
       return bool;
     };
+
     Object.defineProperty(Array.prototype, "includes", {enumerable: false});
   }
 }(this));

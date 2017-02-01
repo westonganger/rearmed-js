@@ -1,7 +1,7 @@
 # rearmed-js
 <a href='https://ko-fi.com/A5071NK' target='_blank'><img height='32' style='border:0px;height:32px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=a' border='0' alt='Buy Me a Coffee' /></a> 
 
-This library is a collection of helpful methods and monkey patches for Arrays, Objects, Numbers, and Strings.
+This library is a collection of helpful methods and monkey patches for Arrays, Objects, Numbers, and Strings. 4.5kb minified and gzipped. 
 
 Start writing your Javascript like you write your Ruby code! 
 
@@ -58,61 +58,66 @@ require('rearmed/string/titleize');
 ```javascript
 var array = [];
 
-array.any(cb) // bool
+var cb = function(val, i){ };
 
-array.all(cb) // bool
+array.any(cb) // returns bool
 
-array.compact(badValues=[null, undefined]) // array, accepts array or splat arguments
+array.all(cb) // returns bool
+
+array.compact(badValues=[null, undefined]) // returns array, accepts array or splat arguments
   
-array.dig(*args) // value, accepts splat arguments or array
+array.dig(*args) // returns value, accepts splat arguments or array
 
-array.each(cb)
+array.each(function(val, i){ })
 
-array.empty() // bool
+array.empty() // return bool
 
-array.equals(array) // bool
+array.equals(array) // returns bool
 
-array.excludes(val, fromIndex=0) // bool
+array.excludes(val, fromIndex=0) //  returns bool
 
-array.notEmpty() // bool
+array.notEmpty() // returns bool
 
-array.find(cb_or_val) // value
+array.find('Hello World'); // returns value
+array.find(cb) // returns value
 
-array.findIndex(cb_or_val) // integer, undefined if not found
+array.findIndex(cb_or_val) // returns integer, undefined if not found
 
-array.first() // value
+array.first() // returns value
 
-array.flatten() // array
+array.flatten() // returns array
 
-array.includes(val, fromIndex=0) // bool
+array.includes(val, fromIndex=0) // returns bool
 
-array.index(cb_or_val) // integer, undefined if not found
+array.index(cb_or_val) // returns integer, undefined if not found
 
-array.inGroupsOf(int, fillWith=false) // nested array
+array.inGroupsOf(int, fillWith=false) // returns nested array
 
-array.groupBy(cb) // nested array
+array.groupBy(cb) // returns nested array
 
-array.last // value
+array.last // returns value
 
-array.max(cb=null) // value
+array.max(cb=null) // returns value
 
-array.maxBy(cb=null) // value
+array.maxBy(cb=null) // returns value
 
-array.min(cb=null) // value
+array.min(cb=null) // returns value
 
-array.minBy(cb=null) // value
+array.minBy(cb=null) // returns value
 
-array.reject(cb) // array
+array.reject(cb) // reutrns array
 
-array.select(cb) // array
+array.select(cb) // returns array
 
-array.smartIncludes(val, fromIndex=0) // bool, uses `equals` method to compare if item is Array or Object
+// uses `equals` method to compare if item is Array or Object
+array.smartIncludes(val, fromIndex=0) // returns bool
 
-array.smartExcludes(val, fromIndex=0) // bool, uses `equals` method to compare if item is Array or Object
+// uses `equals` method to compare if item is Array or Object
+array.smartExcludes(val, fromIndex=0) // returns bool
 
-array.sum(cb=null) // number
+array.sum(cb=null) // returns number
 
-array.uniq(cb=null) // array
+array.uniq(cb=null) // returns array
 ```
 
 ## Object (Hash)
@@ -120,39 +125,41 @@ array.uniq(cb=null) // array
 ```javascript
 var obj = {};
 
-obj.all(cb) // bool
+var cb = function(key, val){ };
 
-obj.any(cb) // bool
+obj.all(cb) // returns bool
 
-obj.compact(badValues=[null, undefined]) // object, accepts array or splat arguments
+obj.any(cb) // returns bool
 
-obj.dig(*args) // object, accepts splat arguments or array
+obj.compact(badValues=[null, undefined]) // returns object, accepts array or splat arguments
 
-obj.each(cb)
+obj.dig(*args) // returns object, accepts splat arguments or array
 
-obj.empty() // bool
+obj.each(cb);
 
-obj.equals(obj) // bool
+obj.empty() // returns bool
 
-obj.except(*keys) // object, accepts keys as splat arguments or an array
+obj.equals(obj) // returns bool
 
-obj.hasKey() // bool
+obj.except(*keys) // returns object, accepts keys as splat arguments or an array
 
-obj.hasValue() // bool
+obj.hasKey() // returns bool
 
-obj.join() // string
+obj.hasValue() // returns bool
 
-obj.keys() // array
+obj.join(cb, delimiter=', ') // returns string
 
-obj.merge(obj) // object
+obj.keys() // returns array
 
-obj.only(*keys) // object, accepts keys as splat arguments or an array
+obj.merge(obj) // returns object
 
-obj.reject(cb) // object
+obj.only(*keys) // returns object, accepts keys as splat arguments or an array
 
-obj.select(cb) // object
+obj.reject(cb) // returns object
 
-obj.values() // array
+obj.select(cb) // returns object
+
+obj.values() // returns array
 ```
 
 ## Number
@@ -160,19 +167,19 @@ obj.values() // array
 ```javascript
 var num = 8.5;
 
-num.ceil() // number
+num.ceil() // returns number
 
-num.floor() // number
+num.floor() // returns number
 
-num.isDecimal() // bool
+num.isDecimal() // returns bool
 
-num.isEven() //bool
+num.isEven() // returns bool
 
-num.isInteger() //bool
+num.isInteger() // returns bool
 
-num.isOdd() // bool
+num.isOdd() // returns bool
 
-num.round() // number
+num.round() // returns number
 ```
 
 ## String
@@ -180,53 +187,54 @@ num.round() // number
 ```javascript
 var str = 'Hello World':
 
-str.capitalize() // string
+str.capitalize() // returns string
 
-str.caseCmp(str) // bool
+str.caseCmp(str) // returns bool
 
-str.chars() // array
+str.chars() // returns array
 
-str.downcase() // string
+str.downcase() // returns string
 
-str.empty() // bool
+str.empty() // returns bool
 
-str.endsWith(val) // bool
+str.endsWith(val) // returns bool
 
-str.excludes(val, fromIndex=0) // bool
+str.excludes(val, fromIndex=0) // returns bool
 
-str.gsub(str, toStr) // string
+str.gsub(str, toStr) // returns string
 
-str.includes(val, fromIndex=0) // bool
+str.includes(val, fromIndex=0) // returns bool
 
-str.lstrip() // string
+str.lstrip() // returns string
 
-str.notEmpty() // bool
+str.notEmpty() // returns bool
 
-str.reverse() // string
+str.reverse() // returns string
 
-str.rstrip() // string
+str.rstrip() // returns string
 
-str.startsWith(val) // bool
+str.startsWith(val) // returns bool
 
-str.strip() // string
+str.strip() // returns string
 
-str.sub(str, toStr) // string
+str.sub(str, toStr) // returns string
 
-str.titleize(onlyFirstLetters=true) // string
+str.titleize(onlyFirstLetters=true) // returns string
 
-str.toBool() // bool
+str.toBool() // returns bool
 
-str.upcase() // string
+str.upcase() // returns string
 ```
 
-## Rearmed Core
+## Rearmed Core (1kb minified)
 
 ```javascript
 var Rearmed = require('rearmed');
 
-Rearmed.isFunction(myFunc) // bool
+Rearmed.isFunction(myFunc) // returns bool
 
-Rearmed.isObjectLike(myObj) // bool, if typeof == 'object' and is not null
+// if typeof == 'object' and is not null
+Rearmed.isObjectLike(myObj) // returns bool
 ```
 
 # Browser Support
@@ -237,15 +245,6 @@ Supports Internet Explorer 9+ and all other browsers.
 Visit this page to create your custom build. (https://solidfoundationwebdev.com/rearmed-js)[https://solidfoundationwebdev.com/rearmed-js]
 
 Alternatively you can use require.
-
-
-# TODO
-* Warn when overriding existing method for each monkey patch
-* Test Object methods
-* Allow splat args
-* Test splat args
-* Ensure all tests
-
 
 # Credits
 Created by Weston Ganger - @westonganger
