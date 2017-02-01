@@ -36,7 +36,7 @@ end
 // require everything
 require('rearmed')
 // OR
-var Rearmed = require('rearmed); // if you want access to the core methods as well
+var Rearmed = require('rearmed'); // if you want access to the core methods as well
 
 // require patches for certain object types only
 require('rearmed/array');
