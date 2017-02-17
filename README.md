@@ -28,7 +28,7 @@ end
 
 # app/assets/javascripts/application.js
 /*
- *= require rearmed
+ *= require rearmed-js
 */
 ```
 
