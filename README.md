@@ -11,11 +11,11 @@ Start writing your Javascript like you write your Ruby code! Works in the browse
 
 #### Yarn, NPM, or Bower
 ```
-yarn add chosen-material-theme
+yarn add rearmed-js
 
-npm install chosen-material-theme
+npm install rearmed-js
 
-bower install chosen-material-theme
+bower install rearmed-js
 ```
 
 #### Rails
