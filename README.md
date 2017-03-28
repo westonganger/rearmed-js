@@ -81,8 +81,7 @@ array.excludes(val, fromIndex=0) //  returns bool
 
 array.notEmpty() // returns bool
 
-array.find('Hello World'); // returns value
-array.find(cb) // returns value
+array.find(cb_or_val) // returns value, undefined if not found
 
 array.findIndex(cb_or_val) // returns integer, undefined if not found
 
@@ -91,8 +90,6 @@ array.first() // returns value
 array.flatten() // returns array
 
 array.includes(val, fromIndex=0) // returns bool
-
-array.index(cb_or_val) // returns integer, undefined if not found
 
 array.inGroupsOf(int, fillWith=false) // returns nested array
 
