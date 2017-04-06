@@ -7,7 +7,7 @@
 
   var warn = require('./../core/warn');
   if(Array.prototype.equals){
-    warn(Array, 'equals');
+    warn('Array', 'equals');
   }
 
   Array.prototype.equals = function(array){

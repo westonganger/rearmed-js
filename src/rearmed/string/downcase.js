@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(String.prototype.downcase){
-    warn(String, 'downcase');
+    warn('String', 'downcase');
   }
 
   String.prototype.downcase = function(){

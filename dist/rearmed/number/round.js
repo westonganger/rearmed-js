@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(Number.prototype.round){
-    warn(Number, 'round');
+    warn('Number', 'round');
   }
 
   Number.prototype.round = function(){

@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(Object.prototype.except){
-    warn(Object, 'except');
+    warn('Object', 'except');
   }
 
   Object.prototype.except = function(keys){

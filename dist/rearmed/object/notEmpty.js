@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(Object.prototype.notEmpty){
-    warn(Object, 'notEmpty');
+    warn('Object', 'notEmpty');
   }
 
   Object.prototype.notEmpty = function(){

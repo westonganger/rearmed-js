@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(String.prototype.titleize){
-    warn(String, 'titleize');
+    warn('String', 'titleize');
   }
 
   String.prototype.titleize = function(onlyFirstLetter){

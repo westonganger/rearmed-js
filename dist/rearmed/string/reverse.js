@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(String.prototype.reverse){
-    warn(String, 'reverse');
+    warn('String', 'reverse');
   }
 
   String.prototype.reverse = function(){

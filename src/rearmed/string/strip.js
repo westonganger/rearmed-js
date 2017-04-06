@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(String.prototype.strip){
-    warn(String, 'strip');
+    warn('String', 'strip');
   }
 
   String.prototype.strip = function(){

@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(Array.prototype.groupBy){
-    warn(Array, 'groupBy');
+    warn('Array', 'groupBy');
   }
 
   Array.prototype.groupBy = function(cb){

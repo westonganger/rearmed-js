@@ -7,7 +7,7 @@
 
   var warn = require('./../core/warn');
   if(Array.prototype.maxBy){
-    warn(Array, 'maxBy');
+    warn('Array', 'maxBy');
   }
 
   Array.prototype.maxBy = function(cb){

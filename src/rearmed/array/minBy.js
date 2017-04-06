@@ -7,7 +7,7 @@
 
   var warn = require('./../core/warn');
   if(Array.prototype.minBy){
-    warn(Array, 'minBy');
+    warn('Array', 'minBy');
   }
 
   Array.prototype.minBy = function(cb){

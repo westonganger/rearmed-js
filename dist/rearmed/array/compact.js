@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(Array.prototype.compact){
-    warn(Array, 'compact');
+    warn('Array', 'compact');
   }
 
   Array.prototype.compact = function(){

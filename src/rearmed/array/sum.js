@@ -7,7 +7,7 @@
 
   var warn = require('./../core/warn');
   if(Array.prototype.sum){
-    warn(Array, 'sum');
+    warn('Array', 'sum');
   }
 
   Array.prototype.sum = function(cb){

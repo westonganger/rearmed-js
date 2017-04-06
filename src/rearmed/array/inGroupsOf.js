@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(Array.prototype.inGroupsOf){
-    warn(Array, 'inGroupsOf');
+    warn('Array', 'inGroupsOf');
   }
 
   Array.prototype.inGroupsOf = function(per, fillWith){

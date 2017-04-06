@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(String.prototype.gsub){
-    warn(String, 'gsub');
+    warn('String', 'gsub');
   }
 
   String.prototype.gsub = function(a,b){

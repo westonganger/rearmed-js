@@ -3,7 +3,7 @@
   
   var warn = require('./../core/warn');
   if(String.prototype.excludes){
-    warn(String, 'excludes');
+    warn('String', 'excludes');
   }
 
   String.prototype.excludes = function(x){

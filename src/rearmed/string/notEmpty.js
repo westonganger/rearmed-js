@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(String.prototype.notEmpty){
-    warn(String, 'notEmpty');
+    warn('String', 'notEmpty');
   }
 
   String.prototype.notEmpty = function(){

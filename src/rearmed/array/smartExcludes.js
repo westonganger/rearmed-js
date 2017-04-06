@@ -10,7 +10,7 @@
 
   var warn = require('./../core/warn');
   if(Array.prototype.smartExcludes){
-    warn(Array, 'smartExcludes');
+    warn('Array', 'smartExcludes');
   }
 
   Array.prototype.smartExcludes = function(x, fromIndex){

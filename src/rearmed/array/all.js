@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(Array.prototype.all){
-    warn(Array, 'all');
+    warn('Array', 'all');
   }
 
   Array.prototype.all = function(cb){

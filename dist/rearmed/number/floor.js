@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(Number.prototype.floor){
-    warn(Number, 'floor');
+    warn('Number', 'floor');
   }
 
   Number.prototype.floor = function(){

@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(Array.prototype.reject){
-    warn(Array, 'reject');
+    warn('Array', 'reject');
   }
 
   Array.prototype.reject = function(cb){

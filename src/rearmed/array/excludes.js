@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(Array.prototype.excludes){
-    warn(Array, 'excludes');
+    warn('Array', 'excludes');
   }
 
   Array.prototype.excludes = function(x, fromIndex){

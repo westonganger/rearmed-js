@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(Object.prototype.merge){
-    warn(Object, 'merge');
+    warn('Object', 'merge');
   }
 
   Object.prototype.merge = function(obj){

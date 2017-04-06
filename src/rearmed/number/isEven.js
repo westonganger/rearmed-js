@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(Number.prototype.isEven){
-    warn(Number, 'isEven');
+    warn('Number', 'isEven');
   }
 
   Number.prototype.isEven = function(){

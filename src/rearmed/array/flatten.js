@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(Array.prototype.flatten){
-    warn(Array, 'flatten');
+    warn('Array', 'flatten');
   }
 
   Array.prototype.flatten = function(result){

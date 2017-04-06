@@ -7,7 +7,7 @@
 
   var warn = require('./../core/warn');
   if(Object.prototype.equals){
-    warn(Object, 'equals');
+    warn('Object', 'equals');
   }
 
   Object.prototype.equals = function(object2){

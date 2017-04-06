@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(Object.prototype.any){
-    warn(Object, 'any');
+    warn('Object', 'any');
   }
 
   Object.prototype.any = function(cb){

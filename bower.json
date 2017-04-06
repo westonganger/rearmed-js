@@ -1,6 +1,6 @@
 {
   "name": "rearmed-js",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "description": "A collection of helpful methods and monkey patches for Arrays, Strings, Objects and More. Method names based off of Ruby and use Lodash implementations where applicable for best performance.",
   "main": "dist/rearmed.min.js",
   "directories": {

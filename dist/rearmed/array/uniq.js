@@ -7,7 +7,7 @@
 
   var warn = require('./../core/warn');
   if(Array.prototype.uniq){
-    warn(Array, 'uniq');
+    warn('Array', 'uniq');
   }
 
   Array.prototype.uniq = function(cb){

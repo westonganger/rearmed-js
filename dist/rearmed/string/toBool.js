@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(String.prototype.toBool){
-    warn(String, 'toBool');
+    warn('String', 'toBool');
   }
 
   String.prototype.toBool = function(){

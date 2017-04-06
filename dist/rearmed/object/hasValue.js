@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(Object.prototype.hasValue){
-    warn(Object, 'hasValue');
+    warn('Object', 'hasValue');
   }
 
   Object.prototype.hasValue = function(val){

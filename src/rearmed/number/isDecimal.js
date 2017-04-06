@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(Number.prototype.isDecimal){
-    warn(Number, 'isDecimal');
+    warn('Number', 'isDecimal');
   }
 
   Number.prototype.isDecimal = function(){

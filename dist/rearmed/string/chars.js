@@ -3,7 +3,7 @@
   
   var warn = require('./../core/warn');
   if(String.prototype.chars){
-    warn(String, 'chars');
+    warn('String', 'chars');
   }
 
   String.prototype.chars = function(){

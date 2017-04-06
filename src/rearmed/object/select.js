@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(Object.prototype.select){
-    warn(Object, 'select');
+    warn('Object', 'select');
   }
 
   Object.prototype.select = function(cb){

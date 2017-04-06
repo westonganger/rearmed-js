@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(Object.prototype.each){
-    warn(Object, 'each');
+    warn('Object', 'each');
   }
 
   Object.prototype.each = function(cb){

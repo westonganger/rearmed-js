@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(Object.prototype.reject){
-    warn(Object, 'reject');
+    warn('Object', 'reject');
   }
 
   Object.prototype.reject = function(cb){

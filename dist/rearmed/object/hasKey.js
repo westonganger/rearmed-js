@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(Object.prototype.hasKey){
-    warn(Object, 'hasKey');
+    warn('Object', 'hasKey');
   }
 
   Object.prototype.hasKey = function(key){

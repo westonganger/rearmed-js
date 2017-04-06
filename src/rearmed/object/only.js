@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(Object.prototype.only){
-    warn(Object, 'only');
+    warn('Object', 'only');
   }
 
   Object.prototype.only = function(keys){

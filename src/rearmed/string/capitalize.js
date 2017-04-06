@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(String.prototype.capitalize){
-    warn(String, 'capitalize');
+    warn('String', 'capitalize');
   }
 
   String.prototype.capitalize = function(){

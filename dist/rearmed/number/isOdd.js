@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(Number.prototype.isOdd){
-    warn(Number, 'isOdd');
+    warn('Number', 'isOdd');
   }
 
   Number.prototype.isOdd = function(){

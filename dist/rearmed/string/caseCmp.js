@@ -3,7 +3,7 @@
   
   var warn = require('./../core/warn');
   if(String.prototype.caseCmp){
-    warn(String, 'caseCmp');
+    warn('String', 'caseCmp');
   }
 
   String.prototype.caseCmp = function(x){

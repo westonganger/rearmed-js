@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(Object.prototype.join){
-    warn(Object, 'join');
+    warn('Object', 'join');
   }
 
   Object.prototype.join = function(cb, delim){

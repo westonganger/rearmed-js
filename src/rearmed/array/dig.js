@@ -7,7 +7,7 @@
 
   var warn = require('./../core/warn');
   if(Array.prototype.dig){
-    warn(Array, 'dig');
+    warn('Array', 'dig');
   }
 
   Array.prototype.dig = function(){

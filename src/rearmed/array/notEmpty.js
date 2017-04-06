@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(Array.prototype.notEmpty){
-    warn(Array, 'notEmpty');
+    warn('Array', 'notEmpty');
   }
 
   Array.prototype.notEmpty = function(){

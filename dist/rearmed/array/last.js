@@ -3,7 +3,7 @@
 
   var warn = require('./../core/warn');
   if(Array.prototype.last){
-    warn(Array, 'last');
+    warn('Array', 'last');
   }
 
   Array.prototype.last = function(){
