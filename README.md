@@ -218,6 +218,7 @@ str.startsWith(val) // returns bool
 str.strip() // returns string
 
 str.sub(str, toStr) // returns string
+// Warning: doesn't warn when it overwrites the original sub method as it has been removed from the JS standard.
 
 str.titleize(onlyFirstLetters=true) // returns string
 
