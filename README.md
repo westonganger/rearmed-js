@@ -30,6 +30,10 @@ end
 # app/assets/javascripts/application.js
 /*
  *= require rearmed-js
+ *
+ * OR individually
+ *= require rearmed-js/rearmed/array/includes
+ *= require rearmed-js/rearmed/array/excludes
 */
 ```
 
