@@ -7,6 +7,12 @@
   }
 
   Array.prototype.any = function(cb){
+    if(!cb){
+      cb = function(){
+        return true;
+      }
+    }
+
     return this.some(cb);
   };
 

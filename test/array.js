@@ -17,6 +17,16 @@ describe('Array', function() {
         return item % 1 === 0;
       }), true);
     });
+
+    it('3', function() {
+      var x = [];
+      assert.equal(x.all(), true);
+    });
+
+    it('4', function() {
+      var x = [1];
+      assert.equal(x.all(), true);
+    });
   });
 
   describe('#any', function() {
@@ -32,6 +42,16 @@ describe('Array', function() {
       assert.equal(x.any(function(item){
         return item % 2 === 0;
       }), false);
+    });
+
+    it('3', function() {
+      var x = [];
+      assert.equal(x.any(), false);
+    });
+
+    it('4', function() {
+      var x = [1];
+      assert.equal(x.any(), true);
     });
   });
 

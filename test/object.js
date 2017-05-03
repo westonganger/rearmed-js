@@ -22,6 +22,16 @@ describe('Object', function() {
         return key !== val;
       }), false);
     });
+
+    it('4', function() {
+      var x = {};
+      assert.equal(x.all(), true);
+    });
+
+    it('5', function() {
+      var x = {foo: null};
+      assert.equal(x.all(), true);
+    });
   });
 
   describe('#any', function() {
@@ -42,6 +52,16 @@ describe('Object', function() {
       assert.equal(x.any(function(key, val){
         return key !== val;
       }), false);
+    });
+
+    it('4', function() {
+      var x = {};
+      assert.equal(x.any(), false);
+    });
+
+    it('5', function() {
+      var x = {foo: null};
+      assert.equal(x.any(), true);
     });
   });
 

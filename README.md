@@ -67,9 +67,9 @@ var array = [];
 
 var cb = function(val, i){ };
 
-array.any(cb) // returns bool
+array.any(cb=null) // returns bool
 
-array.all(cb) // returns bool
+array.all(cb=null) // returns bool
 
 array.compact(badValues=[null, undefined]) // returns array, accepts array or splat arguments
   
@@ -131,9 +131,9 @@ var obj = {};
 
 var cb = function(key, val){ };
 
-obj.all(cb) // returns bool
+obj.all(cb=null) // returns bool
 
-obj.any(cb) // returns bool
+obj.any(cb=null) // returns bool
 
 obj.compact(badValues=[null, undefined]) // returns object, accepts array or splat arguments
 

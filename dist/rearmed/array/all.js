@@ -7,6 +7,11 @@
   }
 
   Array.prototype.all = function(cb){
+    if(!cb){
+      cb = function(){
+        return true;
+      }
+    }
     return this.every(cb);
   };
 

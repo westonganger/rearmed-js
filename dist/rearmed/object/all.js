@@ -9,6 +9,12 @@
   Object.prototype.all = function(cb){
     var bool = true;
 
+    if(!cb){
+      cb = function(){
+        return true;
+      }
+    }
+
     for(var k in this){
       if(!cb(k, this[k])){
         bool = false;
