@@ -5,6 +5,7 @@ var gulp = require('gulp'),
     buffer = require('gulp-buffer'),
     source = require('vinyl-source-stream'),
     rename = require('gulp-rename'),
+    tap = require('gulp-tap'),
     browserify = require('browserify');
 
 var tasks = ['rearmed','array','object','number','string','core'];
@@ -22,7 +23,7 @@ tasks.forEach(function(item, i){
 
     pump([
       browserify(('./src/'+filename), {
-        debug: true,
+        debug: false,
       }).bundle(),
 
       source(filename.replace('rearmed/','')),
@@ -47,6 +48,14 @@ tasks.forEach(function(item, i){
 gulp.task('other', [], function(cb){
   pump([
     gulp.src('./src/rearmed/*/*.js'), 
+
+    tap(function(file){
+      file.contents = browserify(file.path, {
+        debug: false,
+      }).bundle();
+    }),
+
+    buffer(),
 
     gulp.dest('./'),
 

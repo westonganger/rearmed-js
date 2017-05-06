@@ -1,6 +1,6 @@
 {
   "name": "rearmed-js",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "description": "A collection of helpful methods and monkey patches for Arrays, Strings, Objects and More.",
   "main": "rearmed.js",
   "directories": {
@@ -36,6 +36,7 @@
     "gulp-uglify": "latest",
     "gulp-rename": "latest",
     "gulp-buffer": "latest",
+    "gulp-tap": "latest",
     "vinyl-source-stream": "latest",
     "pump": "latest",
     "del": "latest",
