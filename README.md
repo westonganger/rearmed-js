@@ -268,6 +268,9 @@ Rearmed.isObjectLike(myObj) // returns bool
 # Browser Support
 IE 9+ and everything else
 
+# Looking for minified files?
+Use the files provided in the `dist/` folder
+
 # Credits
 Created by Weston Ganger - @westonganger
 <a href='https://ko-fi.com/A5071NK' target='_blank'><img height='32' style='border:0px;height:32px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=a' border='0' alt='Buy Me a Coffee' /></a> 
