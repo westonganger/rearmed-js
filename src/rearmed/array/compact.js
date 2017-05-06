@@ -21,8 +21,6 @@
       bad = arguments;
     }
 
-    console.log(bad);
-
     return this.filter(function(x){
       var bool = true;
       for(var i=0;i<bad.length;i++){

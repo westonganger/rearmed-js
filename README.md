@@ -1,4 +1,5 @@
-# rearmed-js
+# Rearmed-JS [![Build Status](https://api.travis-ci.org/westonganger/rearmed-js.svg?branch=master)](https://travis-ci.org/westonganger/rearmed-js)
+
 <a href='https://ko-fi.com/A5071NK' target='_blank'><img height='32' style='border:0px;height:32px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=a' border='0' alt='Buy Me a Coffee' /></a> 
 
 This library is a collection of helpful methods and monkey patches for Arrays, Objects, Numbers, and Strings. Start writing your Javascript like you write your Ruby code! 
@@ -22,6 +23,7 @@ bower install rearmed-js
 # Usage
 
 #### ES7+
+```javascript
 import 'rearmed'; // import everything
 // OR
 import { Rearmed } from 'rearmed'; // if you want access to the core methods as well
@@ -40,6 +42,7 @@ import { Rearmed } from 'rearmed/core';
 // import only the methods you want
 import 'rearmed/array/reject';
 import 'rearmed/array/select';
+```
 
 #### ES6
 ```javascript
@@ -265,8 +268,10 @@ Rearmed.isFunction(myFunc) // returns bool
 Rearmed.isObjectLike(myObj) // returns bool
 ```
 
-# Browser Support
-IE 9+ and everything else
+# Browser / NodeJS Support
+- Browser support is IE 9+ and everything else. Use the files in the `dist` folder if you need pre-minified files.
+- Array `find` doesnt work properly in old NodeJS 0.x and iojs.
+- String `empty` doesnt work properly in old NodeJS 0.x.
 
 # Looking for minified files?
 Use the files provided in the `dist/` folder
