@@ -273,9 +273,6 @@ Rearmed.isObjectLike(myObj) // returns bool
 - Array `find` doesnt work properly in old NodeJS 0.x and iojs.
 - String `empty` doesnt work properly in old NodeJS 0.x.
 
-# Looking for minified files?
-Use the files provided in the `dist/` folder
-
 # Credits
 Created by Weston Ganger - @westonganger
 
