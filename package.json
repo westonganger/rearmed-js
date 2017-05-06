@@ -2,16 +2,13 @@
   "name": "rearmed-js",
   "version": "1.0.0",
   "description": "A collection of helpful methods and monkey patches for Arrays, Strings, Objects and More. Method names based off of Ruby and use Lodash implementations where applicable for best performance.",
-  "main": "dist/rearmed.min.js",
-  "files": [
-    "dist/**/*.js"
-  ],
+  "main": "rearmed.min.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "console": "node -i -e \"var Rearmed = require('./src/rearmed');\"",
-    "test": "yarn run mocha"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",

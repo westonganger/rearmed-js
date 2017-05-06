@@ -19,6 +19,50 @@ npm install rearmed-js
 bower install rearmed-js
 ```
 
+# Usage
+
+#### ES7+
+import 'rearmed'; // import everything
+// OR
+import { Rearmed } from 'rearmed'; // if you want access to the core methods as well
+
+// OR 
+
+// import patches for certain object types only
+import 'rearmed/array';
+import 'rearmed/number';
+import 'rearmed/object';
+import 'rearmed/string';
+import { Rearmed } from 'rearmed/core';
+
+// OR
+
+// import only the methods you want
+import 'rearmed/array/reject';
+import 'rearmed/array/select';
+
+#### ES6
+```javascript
+require('rearmed') // require everything
+// OR
+var Rearmed = require('rearmed'); // if you want access to the core methods as well
+
+// OR
+
+// require patches for certain object types only
+require('rearmed/array');
+require('rearmed/number');
+require('rearmed/object');
+require('rearmed/string');
+var Rearmed = require('rearmed/core');
+
+// OR
+
+// require only the methods you want
+require('rearmed/array/reject');
+require('rearmed/array/select');
+```
+
 #### Rails
 ```ruby
 # Gemfile
@@ -32,30 +76,9 @@ end
  *= require rearmed-js
  *
  * OR individually
- *= require rearmed-js/rearmed/array/includes
- *= require rearmed-js/rearmed/array/excludes
+ *= require rearmed-js/array/includes
+ *= require rearmed-js/array/excludes
 */
-```
-
-# Usage
-
-```javascript
-// require everything
-require('rearmed')
-// OR
-var Rearmed = require('rearmed'); // if you want access to the core methods as well
-
-// require patches for certain object types only
-require('rearmed/array');
-require('rearmed/number');
-require('rearmed/object');
-require('rearmed/string');
-var Rearmed = require('rearmed/core');
-
-// require only the methods you want
-require('rearmed/array/reject');
-require('rearmed/array/select');
-require('rearmed/string/titleize');
 ```
 
 # Methods Implemented

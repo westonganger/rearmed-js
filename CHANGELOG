@@ -3,5 +3,6 @@
 - `v1.0.0` - Unreleased
   * Allow `all` and `any` methods without a callback
   * Fix some method warnings
+  * Restructure directories because you cant define a root folder in npm... gross.
 - `v0.9.0` - February 1, 2017
   * First Release

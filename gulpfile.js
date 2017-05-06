@@ -25,11 +25,11 @@ tasks.forEach(function(item, i){
         debug: true,
       }).bundle(),
 
-      source(filename),
+      source(filename.replace('rearmed/','')),
 
       buffer(),
 
-      gulp.dest('./dist/'),
+      //gulp.dest('./dist/'),
 
       uglify({
         preserveComments: 'license'
@@ -39,7 +39,7 @@ tasks.forEach(function(item, i){
         suffix: '.min'
       }),
 
-      gulp.dest('./dist/')
+      gulp.dest('./')
     ], cb);
   });
 });
@@ -48,7 +48,7 @@ gulp.task('other', [], function(cb){
   pump([
     gulp.src('./src/rearmed/*/*.js'), 
 
-    gulp.dest('./dist/rearmed/'),
+    //gulp.dest('./dist/rearmed/'),
 
     uglify({
       preserveComments: 'license'
@@ -58,7 +58,7 @@ gulp.task('other', [], function(cb){
       suffix: '.min'
     }),
 
-    gulp.dest('./dist/rearmed/')
+    gulp.dest('./')
   ], cb);
 });
 
