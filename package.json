@@ -1,6 +1,6 @@
 {
   "name": "rearmed-js",
-  "version": "0.9.3",
+  "version": "1.0.0",
   "description": "A collection of helpful methods and monkey patches for Arrays, Strings, Objects and More.",
   "main": "rearmed.js",
   "directories": {
