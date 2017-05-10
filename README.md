@@ -11,7 +11,7 @@ Works in the browser and in NodeJS.
 
 # Install
 
-#### Yarn, NPM, or Bower
+#### Yarn, NPM, Bower
 ```
 yarn add rearmed-js
 
@@ -20,9 +20,39 @@ npm install rearmed-js
 bower install rearmed-js
 ```
 
+#### Rails / Bundler
+
+```ruby
+# Gemfile
+source 'https://rails-assets.org' do
+  gem 'rails-assets-rearmed-js'
+end
+```
+
 # Usage
 
-#### ES7+
+Note: Only import/require the patches once at the beginning of your page or app start otherwise you will get warnings about redefining methods.
+
+### Plain HTML
+
+```html
+<script src="rearmed-js/dist/rearmed.min.js" type="text/javascript" />
+
+<!-- OR only the patches you want -->
+
+<!-- All patches for a certain object type only -->
+<script src="rearmed-js/dist/array.min.js" type="text/javascript" />
+<script src="rearmed-js/dist/number.min.js" type="text/javascript" />
+<script src="rearmed-js/dist/object.min.js" type="text/javascript" />
+<script src="rearmed-js/dist/string.min.js" type="text/javascript" />
+<script src="rearmed-js/dist/core.min.js" type="text/javascript" />
+
+<!-- OR only the methods you want -->
+<script src="rearmed-js/dist/array/reject.min.js" type="text/javascript" />
+<script src="rearmed-js/dist/array/select.min.js" type="text/javascript" />
+```
+
+### ES7+
 ```javascript
 import 'rearmed'; // import everything
 // OR
@@ -44,7 +74,7 @@ import 'rearmed/array/reject';
 import 'rearmed/array/select';
 ```
 
-#### ES6
+### ES6
 ```javascript
 require('rearmed') // require everything
 // OR
@@ -66,21 +96,20 @@ require('rearmed/array/reject');
 require('rearmed/array/select');
 ```
 
-#### Rails
+### Rails
 ```ruby
-# Gemfile
-source 'https://rails-assets.org' do
-  gem 'rails-assets-rearmed-js'
-end
-
-
-# app/assets/javascripts/application.js
 /*
  *= require rearmed-js
  *
- * OR individually
- *= require rearmed-js/array/includes
- *= require rearmed-js/array/excludes
+ * OR for certain object types only
+ *= require rearmed-js/array
+ *= require rearmed-js/number
+ *= require rearmed-js/object
+ *= require rearmed-js/string
+ *
+ * OR only the methods you want
+ *= require rearmed-js/array/reject
+ *= require rearmed-js/array/select
 */
 ```
 
