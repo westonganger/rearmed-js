@@ -449,6 +449,56 @@ describe('Array', function() {
     });
   });
 
+  describe('#range', function() {
+    it('1', function() {
+      assert.deepEqual(Array.range(0,0), [0]);
+    });
+
+    it('2', function() {
+      assert.deepEqual(Array.range(1,5), [1,2,3,4,5]);
+    });
+
+    it('3', function() {
+      assert.deepEqual(Array.range(1,5,2), [1,3,5]);
+    });
+
+    it('4', function() {
+      assert.deepEqual(Array.range(5,1), [5,4,3,2,1]);
+    });
+
+    it('5', function() {
+      assert.deepEqual(Array.range(1.25, 5, 1.25), [1.25, 2.5, 3.75, 5]);
+    });
+
+    it('6', function() {
+      assert.deepEqual(Array.range(-1, 1), [-1, 0, 1]);
+    });
+
+    it('7', function() {
+      assert.throws(function(){
+        Array.range(5, 'a');
+      }, TypeError);
+    });
+
+    it('8', function() {
+      assert.throws(function(){
+        Array.range('a',5);
+      }, TypeError);
+    });
+
+    it('9', function() {
+      assert.throws(function(){
+        Array.range(0,0,0);
+      }, TypeError);
+    });
+
+    it('10', function() {
+      assert.throws(function(){
+        Array.range();
+      }, TypeError);
+    });
+  });
+
   describe('#reject', function() {
     it('1', function() {
       var x = [1,2,3];

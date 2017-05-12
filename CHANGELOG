@@ -1,6 +1,8 @@
 # Changelog
 
-- `v1.0.0` - Unreleased
+- `v1.0.1` - Unreleased
+  * Add Array `range` method
+- `v1.0.0` - May 6, 2017
   * Allow `all` and `any` methods without a callback
   * Fix some method warnings
   * Restructure directories because you cant define a root folder in npm... gross.

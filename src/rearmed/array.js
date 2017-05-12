@@ -1,3 +1,5 @@
+"use strict";
+
 require('./array/all');
 require('./array/any');
 require('./array/compact');
@@ -21,6 +23,7 @@ require('./array/minBy');
 require('./array/notEmpty');
 require('./array/smartExcludes');
 require('./array/smartIncludes');
+require('./array/range');
 require('./array/reject');
 require('./array/select');
 require('./array/sum');

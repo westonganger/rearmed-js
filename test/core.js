@@ -1,6 +1,7 @@
 var assert = require('assert');
 
 var Rearmed = require('./../src/rearmed/core');
+var warn = require('./../src/rearmed/core/warn');
 
 describe('Rearmed Core', function() {
   describe('#isFunction', function() {
@@ -44,6 +45,28 @@ describe('Rearmed Core', function() {
     it('6', function() {
       var x = [];
       assert.equal(Rearmed.isObjectLike(x), true);
+    });
+  });
+
+  describe('#warn', function() {
+    it('1', function() {
+      warn(Array, 'range', true)
+    });
+
+    it('2', function() {
+      warn(Array, 'range')
+    });
+
+    it('3', function() {
+      assert.throws(function(){
+        warn();
+      });
+    });
+
+    it('4', function() {
+      assert.throws(function(){
+        warn(Array);
+      });
     });
   });
 });

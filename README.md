@@ -164,15 +164,19 @@ array.min(cb=null) // returns value
 
 array.minBy(cb=null) // returns value
 
+Array.range(start, end, step) // returns array 
+// Note: use on Array class, not an instance of array.
+// Typescript Note: bummer dude... you cant use Array.range() because its not possible to define static methods on existing interfaces
+
 array.reject(cb) // reutrns array
 
 array.select(cb) // returns array
 
-// uses `equals` method to compare if item is Array or Object
 array.smartIncludes(val, fromIndex=0) // returns bool
+// smart meaning that it uses `equals` method to compare if item is Array or Object
 
-// uses `equals` method to compare if item is Array or Object
 array.smartExcludes(val, fromIndex=0) // returns bool
+// smart meaning that it uses `equals` method to compare if item is Array or Object
 
 array.sum(cb=null) // returns number
 
@@ -293,8 +297,8 @@ var Rearmed = require('rearmed');
 
 Rearmed.isFunction(myFunc) // returns bool
 
-// if typeof == 'object' and is not null
 Rearmed.isObjectLike(myObj) // returns bool
+// if typeof == 'object' and is not null
 ```
 
 # Browser / NodeJS Support

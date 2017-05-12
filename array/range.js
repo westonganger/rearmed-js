@@ -3,23 +3,34 @@
   "use strict";
 
   var warn = require('./../core/warn');
-  if(Array.prototype.excludes){
-    warn('Array', 'excludes');
+  if(Array.range){
+    warn('Array', 'range', true);
   }
 
-  Array.prototype.excludes = function(x, fromIndex){
-    var fromIndex = fromIndex || 0;
-    var bool = true;
-    for(var i=fromIndex;i<this.length;i++){
-      if(this[i] === x){
-        bool = false;
-        break;
-      }
+  Array.range = function(start, end, step){
+    if(!(typeof start == 'number' && !isNaN(start) && isFinite(start)) || !(typeof end == 'number' && !isNaN(end) && isFinite(end))){
+      throw TypeError("start/end arguments must be numbers");
     }
-    return bool;
-  };
 
-  Object.defineProperty(Array.prototype, "excludes", {enumerable: false});
+    if(step === 0){
+      throw TypeError("step argument cannot be zero");
+    }else if(!step){
+      step = 1;
+    }
+
+    if(end < start){
+      step = -step;
+    }
+
+    var range = [];
+
+    while(step > 0 ? end >= start : end <= start){
+      range.push(start);
+      start += step;
+    }
+
+    return range;
+  };
 }(this));
 
 },{"./../core/warn":2}],2:[function(require,module,exports){
