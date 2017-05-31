@@ -32,10 +32,10 @@ require('./object/keys');
 require('./object/merge');
 require('./object/only');
 require('./object/reject');
-require('./object/select');
+require('./object/keepIf');
 require('./object/values');
 
-},{"./object/all":4,"./object/any":5,"./object/compact":6,"./object/dig":7,"./object/each":8,"./object/empty":9,"./object/equals":10,"./object/except":11,"./object/hasKey":12,"./object/hasValue":13,"./object/join":14,"./object/keys":15,"./object/merge":16,"./object/only":17,"./object/reject":18,"./object/select":19,"./object/values":20}],4:[function(require,module,exports){
+},{"./object/all":4,"./object/any":5,"./object/compact":6,"./object/dig":7,"./object/each":8,"./object/empty":9,"./object/equals":10,"./object/except":11,"./object/hasKey":12,"./object/hasValue":13,"./object/join":14,"./object/keepIf":15,"./object/keys":16,"./object/merge":17,"./object/only":18,"./object/reject":19,"./object/values":20}],4:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -388,6 +388,29 @@ require('./object/values');
   "use strict";
 
   var warn = require('./../core/warn');
+  if(Object.prototype.keepIf){
+    warn('Object', 'keepIf');
+  }
+
+  Object.prototype.keepIf = function(cb){
+    var obj = {};
+    for(var k in this){
+      var val = this[k];
+      if(cb(k, val)){
+        obj[k] = val;
+      }
+    }
+    return obj;
+  };
+
+  Object.defineProperty(Object.prototype, "keepIf", {enumerable: false});
+}(this));
+
+},{"./../core/warn":2}],16:[function(require,module,exports){
+(function(){
+  "use strict";
+
+  var warn = require('./../core/warn');
   if(Object.prototype.keys){
     warn('Object', 'keys');
   }
@@ -403,7 +426,7 @@ require('./object/values');
   Object.defineProperty(Object.prototype, "keys", {enumerable: false});
 }(this));
 
-},{"./../core/warn":2}],16:[function(require,module,exports){
+},{"./../core/warn":2}],17:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -427,7 +450,7 @@ require('./object/values');
   Object.defineProperty(Object.prototype, "merge", {enumerable: false});
 }(this));
 
-},{"./../core/warn":2}],17:[function(require,module,exports){
+},{"./../core/warn":2}],18:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -469,7 +492,7 @@ require('./object/values');
   Object.defineProperty(Object.prototype, "only", {enumerable: false});
 }(this));
 
-},{"./../core/warn":2}],18:[function(require,module,exports){
+},{"./../core/warn":2}],19:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -490,29 +513,6 @@ require('./object/values');
   };
 
   Object.defineProperty(Object.prototype, "reject", {enumerable: false});
-}(this));
-
-},{"./../core/warn":2}],19:[function(require,module,exports){
-(function(){
-  "use strict";
-
-  var warn = require('./../core/warn');
-  if(Object.prototype.select){
-    warn('Object', 'select');
-  }
-
-  Object.prototype.select = function(cb){
-    var obj = {};
-    for(var k in this){
-      var val = this[k];
-      if(cb(k, val)){
-        obj[k] = val;
-      }
-    }
-    return obj;
-  };
-
-  Object.defineProperty(Object.prototype, "select", {enumerable: false});
 }(this));
 
 },{"./../core/warn":2}],20:[function(require,module,exports){

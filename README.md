@@ -212,6 +212,8 @@ obj.hasValue() // returns bool
 
 obj.join(cb, delimiter=', ') // returns string
 
+obj.keepIf(cb) // returns object
+
 obj.keys() // returns array
 
 obj.merge(obj) // returns object
@@ -220,9 +222,12 @@ obj.only(*keys) // returns object, accepts keys as splat arguments or an array
 
 obj.reject(cb) // returns object
 
-obj.select(cb) // returns object
-
 obj.values() // returns array
+
+
+/* Dangerous methods - These are opt-in and must be manually required */
+require('rearmed-js/object/dangerous/select');
+obj.select(cb) // returns object, known to cause error with React select elements
 ```
 
 ## Number

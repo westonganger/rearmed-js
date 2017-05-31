@@ -47,7 +47,7 @@ tasks.forEach(function(item, i){
 
 gulp.task('other', [], function(cb){
   pump([
-    gulp.src('./src/rearmed/*/*.js'), 
+    gulp.src('./src/rearmed/*/**/*.js'), 
 
     tap(function(file){
       file.contents = browserify(file.path, {

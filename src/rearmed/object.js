@@ -13,5 +13,5 @@ require('./object/keys');
 require('./object/merge');
 require('./object/only');
 require('./object/reject');
-require('./object/select');
+require('./object/keepIf');
 require('./object/values');

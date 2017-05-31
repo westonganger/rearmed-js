@@ -1,7 +1,7 @@
 (function(){
   "use strict";
 
-  var warn = require('./../core/warn');
+  var warn = require('./../../core/warn');
   if(Object.prototype.select){
     warn('Object', 'select');
   }

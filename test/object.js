@@ -309,22 +309,59 @@ describe('Object', function() {
     });
   });
 
-  describe('#select', function() {
+  describe('#keepIf', function(){
     it('1', function() {
       var x = {foo: 'foo', bar: 'bar'};
-      assert.deepEqual(x.select(function(key, val){
+      assert.deepEqual(x.keepIf(function(key, val){
         return true; 
       }), {foo: 'foo', bar: 'bar'});
     });
 
     it('2', function() {
       var x = {foo: 'foo', bar: 'bar'};
-      assert.deepEqual(x.select(function(key, val){
+      assert.deepEqual(x.keepIf(function(key, val){
         return key === 'foo';
       }), {foo: 'foo'});
     });
 
     it('3', function() {
+      var x = {foo: 'bar', bar: 'foo'};
+      assert.deepEqual(x.keepIf(function(key, val){
+        return val === 'foo';
+      }), {bar: 'foo'});
+    });
+  });
+
+  describe('#select', function() {
+    it('1', function() {
+      var x = {foo: 'foo', bar: 'bar'};
+      try{
+        x.select(function(key, val){
+          return true; 
+        });
+        assert.ok(false);
+      }catch(e){
+        assert.ok(true);
+      }
+    });
+
+    require('../src/rearmed/object/dangerous/select');
+
+    it('2', function() {
+      var x = {foo: 'foo', bar: 'bar'};
+      assert.deepEqual(x.select(function(key, val){
+        return true; 
+      }), {foo: 'foo', bar: 'bar'});
+    });
+
+    it('3', function() {
+      var x = {foo: 'foo', bar: 'bar'};
+      assert.deepEqual(x.select(function(key, val){
+        return key === 'foo';
+      }), {foo: 'foo'});
+    });
+
+    it('4', function() {
       var x = {foo: 'bar', bar: 'foo'};
       assert.deepEqual(x.select(function(key, val){
         return val === 'foo';
