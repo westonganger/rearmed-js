@@ -783,13 +783,14 @@ require('./array/uniq');
 
 },{"./../core/isFunction":33,"./../core/warn":35}],31:[function(require,module,exports){
 var Rearmed = {
+  equals: require('./core/equals'),
   isFunction: require('./core/isFunction'),
   isObjectLike: require('./core/isObjectLike')
 };
 
 module.exports = Rearmed;
 
-},{"./core/isFunction":33,"./core/isObjectLike":34}],32:[function(require,module,exports){
+},{"./core/equals":32,"./core/isFunction":33,"./core/isObjectLike":34}],32:[function(require,module,exports){
 var isObjectLike = require('./isObjectLike');
 
 function equals(obj1, obj2){

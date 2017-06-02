@@ -69,4 +69,32 @@ describe('Rearmed Core', function() {
       });
     });
   });
+
+  describe('#equals', function() {
+    it('1', function() {
+      var x = [1,2,3];
+      assert.equal(x.equals([1,2,3]), true);
+    });
+
+    it('2', function() {
+      var x = [1,2,3];
+      assert.equal(x.equals([1,2,3,4]), false);
+    });
+
+    it('3', function() {
+      var x = {foo: 'foo', bar: 'bar'};
+      x = x.rearmed();
+      var y = {foo: 'foo', bar: 'bar'};
+      assert.equal(x.equals(y), true);
+    });
+
+    it('4', function() {
+      var x = {foo: 'foo', bar: 'bar'};
+      x = x.rearmed();
+      var y = {};
+      assert.equal(x.equals(y), false);
+    });
+
+  });
+
 });

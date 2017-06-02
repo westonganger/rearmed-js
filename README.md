@@ -185,11 +185,18 @@ array.uniq(cb=null) // returns array
 
 ## Object (Hash)
 
-Note: if requiring Object patches individually, ie. require('rearmed-js/object/array'), you must first require('rearmed/object/rearmed')
+Note: if requiring Object patches individually you must first require `object/rearmed`. Example:
+
+>```
+>require('rearmed/object/rearmed');
+>require('rearmed-js/object/select');
+>```
 
 ```javascript
 var obj = {};
-obj = obj.rearmed(); // we have to do this because monkey-patching Object is very dangerous, so now we only patch it with one method
+
+// Monkey-patching Object is very dangerous, so we only patch it with one method
+obj = obj.rearmed(); 
 
 var cb = function(key, val){ };
 
@@ -305,15 +312,18 @@ str.toBool() // returns bool
 str.upcase() // returns string
 ```
 
-## Rearmed Core (1kb minified)
+## Rearmed Core
 
 ```javascript
 var Rearmed = require('rearmed');
 
 Rearmed.isFunction(myFunc) // returns bool
 
-Rearmed.isObjectLike(myObj) // returns bool
 // if typeof == 'object' and is not null
+Rearmed.isObjectLike(myObj) // returns bool
+
+// compare objects or arrays effectively, same as Array#equals and Object#equals methods
+Rearmed.equals(obj1, obj2)
 ```
 
 # Browser / NodeJS Support
