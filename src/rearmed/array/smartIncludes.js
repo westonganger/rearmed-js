@@ -2,10 +2,44 @@
   "use strict";
 
   require('./equals');
-  require('./../object/equals');
 
   var Rearmed = {
-    isObjectLike: require('./../core/isObjectLike')
+    isObjectLike: require('./../core/isObjectLike'),
+    objEquals: function(obj1, obj2){
+      for(var propName in obj1){
+        if(obj1.hasOwnProperty(propName) != obj2.hasOwnProperty(propName)){
+          return false;
+        }else if(typeof obj1[propName] != typeof obj2[propName]){
+          return false;
+        }
+      }
+      for(var propName in obj2){
+        var val = obj1[propName];
+        var other = obj2[propName];
+        if(obj1.hasOwnProperty(propName) != obj2.hasOwnProperty(propName)){
+          return false;
+        }else if(typeof val != typeof other){
+          return false;
+        }
+
+        if(!obj1.hasOwnProperty(propName)){
+          continue;
+        }
+
+        if(Array.isArray(val) && Array.isArray(other)){
+          if(!val.equals(other)){
+            return false;
+          }
+        }else if(Rearmed.isObjectLike(val) && Rearmed.isObjectLike(other)){
+          if(!Rearmed.objEquals(val, other)){
+            return false;
+          }
+        }else if(val != other){
+         return false;
+        }
+      }
+      return true;
+    }
   };
 
   var warn = require('./../core/warn');
@@ -19,7 +53,7 @@
     for(var i=fromIndex;i<this.length;i++){
       var val = this[i];
       if(Rearmed.isObjectLike(val)){
-        if(val.equals(x)){
+        if(Array.isArray(val) ? val.equals(x) : Rearmed.objEquals(val, x)){
           bool = true;
           break;
         }

@@ -669,10 +669,45 @@ require('./array/uniq');
   "use strict";
 
   require('./equals');
-  require('./../object/equals');
 
   var Rearmed = {
-    isObjectLike: require('./../core/isObjectLike')
+    isObjectLike: require('./../core/isObjectLike'),
+    objEquals: function(obj1, obj2){
+      for(var propName in obj1){
+        if(obj1.hasOwnProperty(propName) != obj2.hasOwnProperty(propName)){
+          return false;
+        }else if(typeof obj1[propName] != typeof obj2[propName]){
+          return false;
+        }
+      }
+      for(var propName in obj2){
+        var val = obj1[propName];
+        var other = obj2[propName];
+        if(obj1.hasOwnProperty(propName) != obj2.hasOwnProperty(propName)){
+          return false;
+        }else if(typeof val != typeof other){
+          return false;
+        }
+
+        if(!obj1.hasOwnProperty(propName)){
+          continue;
+        }
+
+        if(Array.isArray(val) && Array.isArray(other)){
+          if(!val.equals(other)){
+            return false;
+          }
+        }else if(Rearmed.isObjectLike(val) && Rearmed.isObjectLike(other)){
+          if(!Rearmed.objEquals(val, other)){
+            return false;
+          }
+        }else if(val != other){
+         return false;
+        }
+      }
+      return true;
+    }
+
   };
 
   var warn = require('./../core/warn');
@@ -686,7 +721,7 @@ require('./array/uniq');
     for(var i=fromIndex;i<this.length;i++){
       var val = this[i];
       if(Rearmed.isObjectLike(val)){
-        if(val.equals(x)){
+        if(Array.isArray(val) ? val.equals(x) : Rearmed.objEquals(val, x)){
           bool = false;
           break;
         }
@@ -701,15 +736,49 @@ require('./array/uniq');
   Object.defineProperty(Array.prototype, "smartExcludes", {enumerable: false});
 }(this));
 
-},{"./../core/isObjectLike":31,"./../core/warn":32,"./../object/equals":33,"./equals":8}],27:[function(require,module,exports){
+},{"./../core/isObjectLike":31,"./../core/warn":32,"./equals":8}],27:[function(require,module,exports){
 (function(){
   "use strict";
 
   require('./equals');
-  require('./../object/equals');
 
   var Rearmed = {
-    isObjectLike: require('./../core/isObjectLike')
+    isObjectLike: require('./../core/isObjectLike'),
+    objEquals: function(obj1, obj2){
+      for(var propName in obj1){
+        if(obj1.hasOwnProperty(propName) != obj2.hasOwnProperty(propName)){
+          return false;
+        }else if(typeof obj1[propName] != typeof obj2[propName]){
+          return false;
+        }
+      }
+      for(var propName in obj2){
+        var val = obj1[propName];
+        var other = obj2[propName];
+        if(obj1.hasOwnProperty(propName) != obj2.hasOwnProperty(propName)){
+          return false;
+        }else if(typeof val != typeof other){
+          return false;
+        }
+
+        if(!obj1.hasOwnProperty(propName)){
+          continue;
+        }
+
+        if(Array.isArray(val) && Array.isArray(other)){
+          if(!val.equals(other)){
+            return false;
+          }
+        }else if(Rearmed.isObjectLike(val) && Rearmed.isObjectLike(other)){
+          if(!Rearmed.objEquals(val, other)){
+            return false;
+          }
+        }else if(val != other){
+         return false;
+        }
+      }
+      return true;
+    }
   };
 
   var warn = require('./../core/warn');
@@ -723,7 +792,7 @@ require('./array/uniq');
     for(var i=fromIndex;i<this.length;i++){
       var val = this[i];
       if(Rearmed.isObjectLike(val)){
-        if(val.equals(x)){
+        if(Array.isArray(val) ? val.equals(x) : Rearmed.objEquals(val, x)){
           bool = true;
           break;
         }
@@ -738,7 +807,7 @@ require('./array/uniq');
   Object.defineProperty(Array.prototype, "smartIncludes", {enumerable: false});
 }(this));
 
-},{"./../core/isObjectLike":31,"./../core/warn":32,"./../object/equals":33,"./equals":8}],28:[function(require,module,exports){
+},{"./../core/isObjectLike":31,"./../core/warn":32,"./equals":8}],28:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -823,51 +892,4 @@ function warn(type, method, notPrototype){
 
 module.exports = warn;
 
-},{}],33:[function(require,module,exports){
-(function(){
-  "use strict";
-
-  var Rearmed = {
-    isObjectLike: require('./../core/isObjectLike')
-  };
-
-  Object.rearmed.add({
-    equals: function(obj2){
-      for(var propName in this){
-        if(this.hasOwnProperty(propName) != obj2.hasOwnProperty(propName)){
-          return false;
-        }else if(typeof this[propName] != typeof obj2[propName]){
-          return false;
-        }
-      }
-      for(var propName in obj2){
-        var val = this[propName];
-        var other = obj2[propName];
-        if(this.hasOwnProperty(propName) != obj2.hasOwnProperty(propName)){
-          return false;
-        }else if(typeof val != typeof other){
-          return false;
-        }
-
-        if(!this.hasOwnProperty(propName)){
-          continue;
-        }
-
-        if(Array.isArray(val) && Array.isArray(other)){
-          if(!val.equals(other)){
-            return false;
-          }
-        }else if(Rearmed.isObjectLike(val) && Rearmed.isObjectLike(other)){
-          if(!val.equals(other)){
-            return false;
-          }
-        }else if(val != other){
-         return false;
-        }
-      }
-      return true;
-    }
-  });
-}(this));
-
-},{"./../core/isObjectLike":31}]},{},[1]);
+},{}]},{},[1]);
