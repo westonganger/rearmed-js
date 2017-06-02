@@ -1,10 +1,9 @@
 # Changelog
 
-- `v1.0.1` - Unreleased
+- `v1.1.0` - June 2, 2017
   * Add Array `range` method
-  * Rename `Object#select` to `Object#keepIf`
-  * Add opt-in dangerous methods which have known issues with other libraries
-  * Add `Object#select` to dangerous methods because it conflicts with React select elements
+  * Move all object patches under `rearmed()` method to fix issue #2
+  * Add `Object#rearmed.add()` and `Object.rearmed.remove()` methods for adding or removing methods to rearmed objects
 - `v1.0.0` - May 6, 2017
   * Allow `all` and `any` methods without a callback
   * Fix some method warnings

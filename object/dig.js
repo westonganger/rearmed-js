@@ -6,17 +6,6 @@ function isObjectLike(value){
 module.exports = isObjectLike;
 
 },{}],2:[function(require,module,exports){
-function warn(type, method, notPrototype){
-  if(type && method){
-    console.warn("Rearmed-js Overriding " + type + (notPrototype ? '.' : '.prototype.') + method, '. If this is a built-in browser method please report on Rearmed-js github issues.');
-  }else{
-    throw("incorrect number of arguments")
-  }
-};
-
-module.exports = warn;
-
-},{}],3:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -24,38 +13,33 @@ module.exports = warn;
     isObjectLike: require('./../core/isObjectLike')
   };
 
-  var warn = require('./../core/warn');
-  if(Object.prototype.dig){
-    warn('Object', 'dig');
-  }
-
-  Object.prototype.dig = function(){
-    var keys;
-    if(arguments.length === 0){
-      keys = [];
-    }else if(arguments.length === 1){
-      if(Array.isArray(arguments[0])){
-        keys = arguments[0];
+  Object.rearmed.add({
+    dig: function(){
+      var keys;
+      if(arguments.length === 0){
+        keys = [];
+      }else if(arguments.length === 1){
+        if(Array.isArray(arguments[0])){
+          keys = arguments[0];
+        }else{
+          keys = [arguments[0]];
+        }
       }else{
-        keys = [arguments[0]];
+        keys = arguments;
       }
-    }else{
-      keys = arguments;
-    }
 
-    var val = this;
-    for(var k in arguments){
-      if(Rearmed.isObjectLike(val)){
-        val = val[arguments[k]];
-      }else{
-        val = undefined;
-        break;
+      var val = this;
+      for(var k in arguments){
+        if(Rearmed.isObjectLike(val)){
+          val = val[arguments[k]];
+        }else{
+          val = undefined;
+          break;
+        }
       }
+      return val;
     }
-    return val;
-  };
-
-  Object.defineProperty(Object.prototype, "dig", {enumerable: false});
+  });
 }(this));
 
-},{"./../core/isObjectLike":1,"./../core/warn":2}]},{},[3]);
+},{"./../core/isObjectLike":1}]},{},[2]);

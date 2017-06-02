@@ -2,11 +2,11 @@
   "use strict";
 
   Object.rearmed.add({
-    reject: function(cb){
+    select: function(cb){
       var obj = {};
       for(var k in this){
         var val = this[k];
-        if(!cb(k, val)){
+        if(cb(k, val)){
           obj[k] = val;
         }
       }

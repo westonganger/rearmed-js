@@ -185,8 +185,11 @@ array.uniq(cb=null) // returns array
 
 ## Object (Hash)
 
+Note: if requiring Object patches individually, ie. require('rearmed-js/object/array'), you must first require('rearmed/object/rearmed')
+
 ```javascript
 var obj = {};
+obj = obj.rearmed(); // we have to do this because monkey-patching Object is very dangerous, so now we only patch it with one method
 
 var cb = function(key, val){ };
 
@@ -212,8 +215,6 @@ obj.hasValue() // returns bool
 
 obj.join(cb, delimiter=', ') // returns string
 
-obj.keepIf(cb) // returns object
-
 obj.keys() // returns array
 
 obj.merge(obj) // returns object
@@ -222,12 +223,21 @@ obj.only(*keys) // returns object, accepts keys as splat arguments or an array
 
 obj.reject(cb) // returns object
 
+obj.select(cb) // returns object, known to cause error with React select elements
+
 obj.values() // returns array
 
+Object.rearmed.add({
+  myNewMethod: function(){
+    // add new method to rearmed() objects
+  }
+);
 
-/* Dangerous methods - These are opt-in and must be manually required */
-require('rearmed-js/object/dangerous/select');
-obj.select(cb) // returns object, known to cause error with React select elements
+Object.rearmed.remove(
+  myNewMethod: function(){
+    // remove method from rearmed() objects
+  }
+);
 ```
 
 ## Number

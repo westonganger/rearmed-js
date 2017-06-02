@@ -1,6 +1,7 @@
 var Rearmed = {
   isFunction: require('./core/isFunction'),
-  isObjectLike: require('./core/isObjectLike')
+  isObjectLike: require('./core/isObjectLike'),
+
 };
 
 module.exports = Rearmed;

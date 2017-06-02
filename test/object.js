@@ -6,31 +6,31 @@ describe('Object', function() {
   describe('#all', function() {
     it('1', function() {
       var x = {};
-      assert.equal(x.all(function(){}), true);
+      assert.equal(x.rearmed().all(function(){}), true);
     });
 
     it('2', function() {
       var x = {foo: 'foo', bar: 'bar'};
-      assert.equal(x.all(function(key, val){
+      assert.equal(x.rearmed().all(function(key, val){
         return key === val;
       }), true);
     });
 
     it('3', function() {
       var x = {foo: 'foo', bar: 'bar'};
-      assert.equal(x.all(function(key, val){
+      assert.equal(x.rearmed().all(function(key, val){
         return key !== val;
       }), false);
     });
 
     it('4', function() {
       var x = {};
-      assert.equal(x.all(), true);
+      assert.equal(x.rearmed().all(), true);
     });
 
     it('5', function() {
       var x = {foo: null};
-      assert.equal(x.all(), true);
+      assert.equal(x.rearmed().all(), false);
     });
   });
 
