@@ -42,19 +42,4 @@ function isObjectLike(value){
 
 module.exports = isObjectLike;
 
-},{}],3:[function(require,module,exports){
-(function(){
-  "use strict";
-
-  var Rearmed = {
-    equals: require('./../core/equals')
-  };
-
-  Object.rearmed.add({
-    equals: function(obj2){
-      return Rearmed.equals(this, obj2);
-    }
-  });
-}(this));
-
-},{"./../core/equals":1}]},{},[3]);
+},{}]},{},[1]);

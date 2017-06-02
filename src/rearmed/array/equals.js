@@ -2,7 +2,8 @@
   "use strict";
 
   var Rearmed = {
-    isObjectLike: require('./../core/isObjectLike')
+    isObjectLike: require('./../core/isObjectLike'),
+    equals: require('./../core/equals')
   };
 
   var warn = require('./../core/warn');
@@ -11,30 +12,7 @@
   }
 
   Array.prototype.equals = function(array){
-    if(!array){
-      return false;
-    }
-
-    if(this.length !== array.length){
-      return false;
-    }
-
-    for(var i=0;i<this.length;i++){
-      var val = this[i];
-      var other = array[i]
-      if(Array.isArray(this[i]) && Array.isArray(other)){
-        if(!val.equals(other)){
-          return false;
-        }
-      }else if(Rearmed.isObjectLike(val) && Rearmed.isObjectLike(other)){
-        if(!val.equals(other)){
-          return false;
-        }
-      }else if(val !== other){
-        return false;
-      }
-    }
-    return true;
+    return Rearmed.equals(this, array);
   }
 
   Object.defineProperty(Array.prototype, "equals", {enumerable: false});
