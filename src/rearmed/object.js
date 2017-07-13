@@ -15,3 +15,4 @@ require('./object/only');
 require('./object/reject');
 require('./object/keepIf');
 require('./object/values');
+require('./object/blank');

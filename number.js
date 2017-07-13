@@ -17,8 +17,25 @@ require('./number/isEven');
 require('./number/isInteger');
 require('./number/isOdd');
 require('./number/round');
+require('./number/blank');
 
-},{"./number/ceil":3,"./number/floor":4,"./number/isDecimal":5,"./number/isEven":6,"./number/isInteger":7,"./number/isOdd":8,"./number/round":9}],3:[function(require,module,exports){
+},{"./number/blank":3,"./number/ceil":4,"./number/floor":5,"./number/isDecimal":6,"./number/isEven":7,"./number/isInteger":8,"./number/isOdd":9,"./number/round":10}],3:[function(require,module,exports){
+(function(){
+  "use strict";
+
+  var warn = require('./../core/warn');
+  if(Number.prototype.blank){
+    warn('Number', 'blank');
+  }
+
+  Number.prototype.blank = function(){
+    return false; // No number is considered blank, as rails
+  };
+
+  Object.defineProperty(Number.prototype, "blank", {enumerable: false});
+}(this));
+
+},{"./../core/warn":1}],4:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -34,7 +51,7 @@ require('./number/round');
   Object.defineProperty(Number.prototype, "ceil", {enumerable: false});
 }(this));
 
-},{"./../core/warn":1}],4:[function(require,module,exports){
+},{"./../core/warn":1}],5:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -50,7 +67,7 @@ require('./number/round');
   Object.defineProperty(Number.prototype, "floor", {enumerable: false});
 }(this));
 
-},{"./../core/warn":1}],5:[function(require,module,exports){
+},{"./../core/warn":1}],6:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -70,7 +87,7 @@ require('./number/round');
   Object.defineProperty(Number.prototype, "isDecimal", {enumerable: false});
 }(this));
 
-},{"./../core/warn":1}],6:[function(require,module,exports){
+},{"./../core/warn":1}],7:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -86,7 +103,7 @@ require('./number/round');
   Object.defineProperty(Number.prototype, "isEven", {enumerable: false});
 }(this));
 
-},{"./../core/warn":1}],7:[function(require,module,exports){
+},{"./../core/warn":1}],8:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -106,7 +123,7 @@ require('./number/round');
   Object.defineProperty(Number.prototype, "isInteger", {enumerable: false});
 }(this));
 
-},{"./../core/warn":1}],8:[function(require,module,exports){
+},{"./../core/warn":1}],9:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -122,7 +139,7 @@ require('./number/round');
   Object.defineProperty(Number.prototype, "isOdd", {enumerable: false});
 }(this));
 
-},{"./../core/warn":1}],9:[function(require,module,exports){
+},{"./../core/warn":1}],10:[function(require,module,exports){
 (function(){
   "use strict";
 

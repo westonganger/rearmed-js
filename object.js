@@ -34,8 +34,9 @@ require('./object/only');
 require('./object/reject');
 require('./object/keepIf');
 require('./object/values');
+require('./object/blank');
 
-},{"./object/all":4,"./object/any":5,"./object/compact":6,"./object/dig":7,"./object/each":8,"./object/empty":9,"./object/equals":10,"./object/except":11,"./object/hasKey":12,"./object/hasValue":13,"./object/join":14,"./object/keepIf":15,"./object/keys":16,"./object/merge":17,"./object/only":18,"./object/reject":19,"./object/values":20}],4:[function(require,module,exports){
+},{"./object/all":4,"./object/any":5,"./object/blank":6,"./object/compact":7,"./object/dig":8,"./object/each":9,"./object/empty":10,"./object/equals":11,"./object/except":12,"./object/hasKey":13,"./object/hasValue":14,"./object/join":15,"./object/keepIf":16,"./object/keys":17,"./object/merge":18,"./object/only":19,"./object/reject":20,"./object/values":21}],4:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -99,6 +100,54 @@ require('./object/values');
 (function(){
   "use strict";
 
+// The rails implementation was used as a guide:
+// https://github.com/rails/rails/blob/cab6ba4e1bf2abf6a5fb83f2f28e2a8482350bbd/activesupport/lib/active_support/core_ext/object/blank.rb
+//
+
+  var warn = require('./../core/warn');
+
+// blank
+  if(Object.prototype.blank){
+    warn('Object', 'blank');
+  }
+
+  Object.prototype.blank = function(){
+    if(this.empty){
+      return this.empty();
+    }
+    return !this;
+  };
+
+  Object.defineProperty(Object.prototype, "blank", {enumerable: false});
+
+// present
+  if(Object.prototype.present){
+    warn('Object', 'present');
+  }
+
+  Object.prototype.present = function(){
+    return !this.blank();
+  };
+
+  Object.defineProperty(Object.prototype, "present", {enumerable: false});
+
+// presence
+  if(Object.prototype.presence){
+    warn('Object', 'presence');
+  }
+
+  Object.prototype.presence = function(){
+    return this.present() ? this : null;
+  };
+
+  Object.defineProperty(Object.prototype, "presence", {enumerable: false});
+}(this));
+
+
+},{"./../core/warn":2}],7:[function(require,module,exports){
+(function(){
+  "use strict";
+
   var warn = require('./../core/warn');
   if(Object.prototype.compact){
     warn('Object', 'compact');
@@ -139,7 +188,7 @@ require('./object/values');
   Object.defineProperty(Object.prototype, "compact", {enumerable: false});
 }(this));
 
-},{"./../core/warn":2}],7:[function(require,module,exports){
+},{"./../core/warn":2}],8:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -181,7 +230,7 @@ require('./object/values');
   Object.defineProperty(Object.prototype, "dig", {enumerable: false});
 }(this));
 
-},{"./../core/isObjectLike":1,"./../core/warn":2}],8:[function(require,module,exports){
+},{"./../core/isObjectLike":1,"./../core/warn":2}],9:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -199,7 +248,7 @@ require('./object/values');
   Object.defineProperty(Object.prototype, "each", {enumerable: false});
 }(this));
 
-},{"./../core/warn":2}],9:[function(require,module,exports){
+},{"./../core/warn":2}],10:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -215,7 +264,7 @@ require('./object/values');
   Object.defineProperty(Object.prototype, "empty", {enumerable: false});
 }(this));
 
-},{"./../core/warn":2}],10:[function(require,module,exports){
+},{"./../core/warn":2}],11:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -267,7 +316,7 @@ require('./object/values');
   Object.defineProperty(Object.prototype, "equals", {enumerable: false});
 }(this));
 
-},{"./../core/isObjectLike":1,"./../core/warn":2}],11:[function(require,module,exports){
+},{"./../core/isObjectLike":1,"./../core/warn":2}],12:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -309,7 +358,7 @@ require('./object/values');
   Object.defineProperty(Object.prototype, "except", {enumerable: false});
 }(this));
 
-},{"./../core/warn":2}],12:[function(require,module,exports){
+},{"./../core/warn":2}],13:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -332,7 +381,7 @@ require('./object/values');
   Object.defineProperty(Object.prototype, "hasKey", {enumerable: false});
 }(this));
 
-},{"./../core/warn":2}],13:[function(require,module,exports){
+},{"./../core/warn":2}],14:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -355,7 +404,7 @@ require('./object/values');
   Object.defineProperty(Object.prototype, "hasValue", {enumerable: false});
 }(this));
 
-},{"./../core/warn":2}],14:[function(require,module,exports){
+},{"./../core/warn":2}],15:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -383,7 +432,7 @@ require('./object/values');
   Object.defineProperty(Object.prototype, "join", {enumerable: false});
 }(this));
 
-},{"./../core/warn":2}],15:[function(require,module,exports){
+},{"./../core/warn":2}],16:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -406,7 +455,7 @@ require('./object/values');
   Object.defineProperty(Object.prototype, "keepIf", {enumerable: false});
 }(this));
 
-},{"./../core/warn":2}],16:[function(require,module,exports){
+},{"./../core/warn":2}],17:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -426,7 +475,7 @@ require('./object/values');
   Object.defineProperty(Object.prototype, "keys", {enumerable: false});
 }(this));
 
-},{"./../core/warn":2}],17:[function(require,module,exports){
+},{"./../core/warn":2}],18:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -450,7 +499,7 @@ require('./object/values');
   Object.defineProperty(Object.prototype, "merge", {enumerable: false});
 }(this));
 
-},{"./../core/warn":2}],18:[function(require,module,exports){
+},{"./../core/warn":2}],19:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -492,7 +541,7 @@ require('./object/values');
   Object.defineProperty(Object.prototype, "only", {enumerable: false});
 }(this));
 
-},{"./../core/warn":2}],19:[function(require,module,exports){
+},{"./../core/warn":2}],20:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -515,7 +564,7 @@ require('./object/values');
   Object.defineProperty(Object.prototype, "reject", {enumerable: false});
 }(this));
 
-},{"./../core/warn":2}],20:[function(require,module,exports){
+},{"./../core/warn":2}],21:[function(require,module,exports){
 (function(){
   "use strict";
 

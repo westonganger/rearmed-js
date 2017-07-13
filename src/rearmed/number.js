@@ -5,3 +5,4 @@ require('./number/isEven');
 require('./number/isInteger');
 require('./number/isOdd');
 require('./number/round');
+require('./number/blank');
