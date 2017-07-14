@@ -51,7 +51,7 @@ require('./array/uniq');
   Object.defineProperty(Array.prototype, "all", {enumerable: false});
 }(this));
 
-},{"./../core/warn":32}],3:[function(require,module,exports){
+},{"./../core/warn":33}],3:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -73,7 +73,7 @@ require('./array/uniq');
   Object.defineProperty(Array.prototype, "any", {enumerable: false});
 }(this));
 
-},{"./../core/warn":32}],4:[function(require,module,exports){
+},{"./../core/warn":33}],4:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -112,7 +112,7 @@ require('./array/uniq');
   Object.defineProperty(Array.prototype, "compact", {enumerable: false});
 }(this));
 
-},{"./../core/warn":32}],5:[function(require,module,exports){
+},{"./../core/warn":33}],5:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -154,7 +154,7 @@ require('./array/uniq');
   Object.defineProperty(Array.prototype, "dig", {enumerable: false});
 }(this));
 
-},{"./../core/isObjectLike":31,"./../core/warn":32}],6:[function(require,module,exports){
+},{"./../core/isObjectLike":32,"./../core/warn":33}],6:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -172,7 +172,7 @@ require('./array/uniq');
   Object.defineProperty(Array.prototype, "each", {enumerable: false});
 }(this));
 
-},{"./../core/warn":32}],7:[function(require,module,exports){
+},{"./../core/warn":33}],7:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -188,12 +188,13 @@ require('./array/uniq');
   Object.defineProperty(Array.prototype, "empty", {enumerable: false});
 }(this));
 
-},{"./../core/warn":32}],8:[function(require,module,exports){
+},{"./../core/warn":33}],8:[function(require,module,exports){
 (function(){
   "use strict";
 
   var Rearmed = {
-    isObjectLike: require('./../core/isObjectLike')
+    isObjectLike: require('./../core/isObjectLike'),
+    equals: require('./../core/equals')
   };
 
   var warn = require('./../core/warn');
@@ -202,36 +203,13 @@ require('./array/uniq');
   }
 
   Array.prototype.equals = function(array){
-    if(!array){
-      return false;
-    }
-
-    if(this.length !== array.length){
-      return false;
-    }
-
-    for(var i=0;i<this.length;i++){
-      var val = this[i];
-      var other = array[i]
-      if(Array.isArray(this[i]) && Array.isArray(other)){
-        if(!val.equals(other)){
-          return false;
-        }
-      }else if(Rearmed.isObjectLike(val) && Rearmed.isObjectLike(other)){
-        if(!val.equals(other)){
-          return false;
-        }
-      }else if(val !== other){
-        return false;
-      }
-    }
-    return true;
+    return Rearmed.equals(this, array);
   }
 
   Object.defineProperty(Array.prototype, "equals", {enumerable: false});
 }(this));
 
-},{"./../core/isObjectLike":31,"./../core/warn":32}],9:[function(require,module,exports){
+},{"./../core/equals":30,"./../core/isObjectLike":32,"./../core/warn":33}],9:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -255,7 +233,7 @@ require('./array/uniq');
   Object.defineProperty(Array.prototype, "excludes", {enumerable: false});
 }(this));
 
-},{"./../core/warn":32}],10:[function(require,module,exports){
+},{"./../core/warn":33}],10:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -280,7 +258,7 @@ require('./array/uniq');
   }
 }(this));
 
-},{"./../core/isFunction":30}],11:[function(require,module,exports){
+},{"./../core/isFunction":31}],11:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -305,7 +283,7 @@ require('./array/uniq');
   }
 }(this));
 
-},{"./../core/isFunction":30}],12:[function(require,module,exports){
+},{"./../core/isFunction":31}],12:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -321,7 +299,7 @@ require('./array/uniq');
   Object.defineProperty(Array.prototype, "first", {enumerable: false});
 }(this));
 
-},{"./../core/warn":32}],13:[function(require,module,exports){
+},{"./../core/warn":33}],13:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -353,7 +331,7 @@ require('./array/uniq');
   Object.defineProperty(Array.prototype, "flatten", {enumerable: false});
 }(this));
 
-},{"./../core/warn":32}],14:[function(require,module,exports){
+},{"./../core/warn":33}],14:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -376,7 +354,7 @@ require('./array/uniq');
   Object.defineProperty(Array.prototype, "groupBy", {enumerable: false});
 }(this));
 
-},{"./../core/warn":32}],15:[function(require,module,exports){
+},{"./../core/warn":33}],15:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -422,7 +400,7 @@ require('./array/uniq');
   Object.defineProperty(Array.prototype, "inGroupsOf", {enumerable: false});
 }(this));
 
-},{"./../core/warn":32}],16:[function(require,module,exports){
+},{"./../core/warn":33}],16:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -459,7 +437,7 @@ require('./array/uniq');
   Object.defineProperty(Array.prototype, "last", {enumerable: false});
 }(this));
 
-},{"./../core/warn":32}],18:[function(require,module,exports){
+},{"./../core/warn":33}],18:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -488,7 +466,7 @@ require('./array/uniq');
   Object.defineProperty(Array.prototype, "max", {enumerable: false});
 }(this));
 
-},{"./../core/isFunction":30,"./../core/warn":32}],19:[function(require,module,exports){
+},{"./../core/isFunction":31,"./../core/warn":33}],19:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -519,7 +497,7 @@ require('./array/uniq');
   Object.defineProperty(Array.prototype, "maxBy", {enumerable: false});
 }(this));
 
-},{"./../core/isFunction":30,"./../core/warn":32}],20:[function(require,module,exports){
+},{"./../core/isFunction":31,"./../core/warn":33}],20:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -548,7 +526,7 @@ require('./array/uniq');
   Object.defineProperty(Array.prototype, "min", {enumerable: false});
 }(this));
 
-},{"./../core/isFunction":30,"./../core/warn":32}],21:[function(require,module,exports){
+},{"./../core/isFunction":31,"./../core/warn":33}],21:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -579,7 +557,7 @@ require('./array/uniq');
   Object.defineProperty(Array.prototype, "minBy", {enumerable: false});
 }(this));
 
-},{"./../core/isFunction":30,"./../core/warn":32}],22:[function(require,module,exports){
+},{"./../core/isFunction":31,"./../core/warn":33}],22:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -595,7 +573,7 @@ require('./array/uniq');
   Object.defineProperty(Array.prototype, "notEmpty", {enumerable: false});
 }(this));
 
-},{"./../core/warn":32}],23:[function(require,module,exports){
+},{"./../core/warn":33}],23:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -630,7 +608,7 @@ require('./array/uniq');
   };
 }(this));
 
-},{"./../core/warn":32}],24:[function(require,module,exports){
+},{"./../core/warn":33}],24:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -648,7 +626,7 @@ require('./array/uniq');
   Object.defineProperty(Array.prototype, "reject", {enumerable: false});
 }(this));
 
-},{"./../core/warn":32}],25:[function(require,module,exports){
+},{"./../core/warn":33}],25:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -664,15 +642,13 @@ require('./array/uniq');
   Object.defineProperty(Array.prototype, "select", {enumerable: false});
 }(this));
 
-},{"./../core/warn":32}],26:[function(require,module,exports){
+},{"./../core/warn":33}],26:[function(require,module,exports){
 (function(){
   "use strict";
 
-  require('./equals');
-  require('./../object/equals');
-
   var Rearmed = {
-    isObjectLike: require('./../core/isObjectLike')
+    isObjectLike: require('./../core/isObjectLike'),
+    equals: require('./../core/equals')
   };
 
   var warn = require('./../core/warn');
@@ -686,7 +662,7 @@ require('./array/uniq');
     for(var i=fromIndex;i<this.length;i++){
       var val = this[i];
       if(Rearmed.isObjectLike(val)){
-        if(val.equals(x)){
+        if(Rearmed.equals(val, x)){
           bool = false;
           break;
         }
@@ -701,15 +677,13 @@ require('./array/uniq');
   Object.defineProperty(Array.prototype, "smartExcludes", {enumerable: false});
 }(this));
 
-},{"./../core/isObjectLike":31,"./../core/warn":32,"./../object/equals":33,"./equals":8}],27:[function(require,module,exports){
+},{"./../core/equals":30,"./../core/isObjectLike":32,"./../core/warn":33}],27:[function(require,module,exports){
 (function(){
   "use strict";
 
-  require('./equals');
-  require('./../object/equals');
-
   var Rearmed = {
-    isObjectLike: require('./../core/isObjectLike')
+    isObjectLike: require('./../core/isObjectLike'),
+    equals: require('./../core/equals')
   };
 
   var warn = require('./../core/warn');
@@ -723,7 +697,7 @@ require('./array/uniq');
     for(var i=fromIndex;i<this.length;i++){
       var val = this[i];
       if(Rearmed.isObjectLike(val)){
-        if(val.equals(x)){
+        if(Rearmed.equals(val, x)){
           bool = true;
           break;
         }
@@ -738,7 +712,7 @@ require('./array/uniq');
   Object.defineProperty(Array.prototype, "smartIncludes", {enumerable: false});
 }(this));
 
-},{"./../core/isObjectLike":31,"./../core/warn":32,"./../object/equals":33,"./equals":8}],28:[function(require,module,exports){
+},{"./../core/equals":30,"./../core/isObjectLike":32,"./../core/warn":33}],28:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -769,7 +743,7 @@ require('./array/uniq');
   Object.defineProperty(Array.prototype, "sum", {enumerable: false});
 }(this));
 
-},{"./../core/isFunction":30,"./../core/warn":32}],29:[function(require,module,exports){
+},{"./../core/isFunction":31,"./../core/warn":33}],29:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -798,21 +772,58 @@ require('./array/uniq');
   Object.defineProperty(Array.prototype, "uniq", {enumerable: false});
 }(this));
 
-},{"./../core/isFunction":30,"./../core/warn":32}],30:[function(require,module,exports){
+},{"./../core/isFunction":31,"./../core/warn":33}],30:[function(require,module,exports){
+var isObjectLike = require('./isObjectLike');
+
+function equals(obj1, obj2){
+  for(var propName in obj1){
+    if(obj1.hasOwnProperty(propName) != obj2.hasOwnProperty(propName)){
+      return false;
+    }else if(typeof obj1[propName] != typeof obj2[propName]){
+      return false;
+    }
+  }
+  for(var propName in obj2){
+    var val = obj1[propName];
+    var other = obj2[propName];
+    if(obj1.hasOwnProperty(propName) != obj2.hasOwnProperty(propName)){
+      return false;
+    }else if(typeof val != typeof other){
+      return false;
+    }
+
+    if(!obj1.hasOwnProperty(propName)){
+      continue;
+    }
+
+    if((Array.isArray(val) && Array.isArray(other)) || (isObjectLike(val) && isObjectLike(other))){
+      if(!equals(val, other)){
+        return false;
+      }
+    }else if(val != other){
+     return false;
+    }
+  }
+  return true;
+};
+
+module.exports = equals;
+
+},{"./isObjectLike":32}],31:[function(require,module,exports){
 function isFunction(obj){
   return !!(obj && obj.constructor && obj.call && obj.apply);
 };
 
 module.exports = isFunction;
 
-},{}],31:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 function isObjectLike(value){
   return value != null && typeof value == 'object';
 };
 
 module.exports = isObjectLike;
 
-},{}],32:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 function warn(type, method, notPrototype){
   if(type && method){
     console.warn("Rearmed-js Overriding " + type + (notPrototype ? '.' : '.prototype.') + method, '. If this is a built-in browser method please report on Rearmed-js github issues.');
@@ -823,56 +834,4 @@ function warn(type, method, notPrototype){
 
 module.exports = warn;
 
-},{}],33:[function(require,module,exports){
-(function(){
-  "use strict";
-
-  var Rearmed = {
-    isObjectLike: require('./../core/isObjectLike')
-  };
-
-  var warn = require('./../core/warn');
-  if(Object.prototype.equals){
-    warn('Object', 'equals');
-  }
-
-  Object.prototype.equals = function(object2){
-    for(var propName in this){
-      if(this.hasOwnProperty(propName) != object2.hasOwnProperty(propName)){
-        return false;
-      }else if(typeof this[propName] != typeof object2[propName]){
-        return false;
-      }
-    }
-    for(var propName in object2){
-      var val = this[propName];
-      var other = object2[propName];
-      if(this.hasOwnProperty(propName) != object2.hasOwnProperty(propName)){
-        return false;
-      }else if(typeof val != typeof other){
-        return false;
-      }
-
-      if(!this.hasOwnProperty(propName)){
-        continue;
-      }
-
-      if(Array.isArray(val) && Array.isArray(other)){
-        if(!val.equals(other)){
-          return false;
-        }
-      }else if(Rearmed.isObjectLike(val) && Rearmed.isObjectLike(other)){
-        if(!val.equals(other)){
-          return false;
-        }
-      }else if(val != other){
-       return false;
-      }
-    }
-    return true;
-  };
-
-  Object.defineProperty(Object.prototype, "equals", {enumerable: false});
-}(this));
-
-},{"./../core/isObjectLike":31,"./../core/warn":32}]},{},[1]);
+},{}]},{},[1]);

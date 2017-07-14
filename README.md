@@ -185,8 +185,18 @@ array.uniq(cb=null) // returns array
 
 ## Object (Hash)
 
+Note: if requiring Object patches individually you must first require `object/rearmed`. Example:
+
+>```
+>require('rearmed/object/rearmed');
+>require('rearmed-js/object/select');
+>```
+
 ```javascript
 var obj = {};
+
+// Monkey-patching Object is very dangerous, so we only patch it with one method
+obj = obj.rearmed(); 
 
 var cb = function(key, val){ };
 
@@ -212,8 +222,6 @@ obj.hasValue() // returns bool
 
 obj.join(cb, delimiter=', ') // returns string
 
-obj.keepIf(cb) // returns object
-
 obj.keys() // returns array
 
 obj.merge(obj) // returns object
@@ -222,12 +230,21 @@ obj.only(*keys) // returns object, accepts keys as splat arguments or an array
 
 obj.reject(cb) // returns object
 
+obj.select(cb) // returns object, known to cause error with React select elements
+
 obj.values() // returns array
 
+Object.rearmed.add({
+  myNewMethod: function(){
+    // add new method to rearmed() objects
+  }
+);
 
-/* Dangerous methods - These are opt-in and must be manually required */
-require('rearmed-js/object/dangerous/select');
-obj.select(cb) // returns object, known to cause error with React select elements
+Object.rearmed.remove(
+  myNewMethod: function(){
+    // remove method from rearmed() objects
+  }
+);
 ```
 
 ## Number
@@ -295,15 +312,18 @@ str.toBool() // returns bool
 str.upcase() // returns string
 ```
 
-## Rearmed Core (1kb minified)
+## Rearmed Core
 
 ```javascript
 var Rearmed = require('rearmed');
 
 Rearmed.isFunction(myFunc) // returns bool
 
-Rearmed.isObjectLike(myObj) // returns bool
 // if typeof == 'object' and is not null
+Rearmed.isObjectLike(myObj) // returns bool
+
+// compare objects or arrays effectively, same as Array#equals and Object#equals methods
+Rearmed.equals(obj1, obj2)
 ```
 
 # Browser / NodeJS Support

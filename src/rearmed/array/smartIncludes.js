@@ -1,11 +1,9 @@
 (function(){
   "use strict";
 
-  require('./equals');
-  require('./../object/equals');
-
   var Rearmed = {
-    isObjectLike: require('./../core/isObjectLike')
+    isObjectLike: require('./../core/isObjectLike'),
+    equals: require('./../core/equals')
   };
 
   var warn = require('./../core/warn');
@@ -19,7 +17,7 @@
     for(var i=fromIndex;i<this.length;i++){
       var val = this[i];
       if(Rearmed.isObjectLike(val)){
-        if(val.equals(x)){
+        if(Rearmed.equals(val, x)){
           bool = true;
           break;
         }

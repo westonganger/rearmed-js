@@ -1,28 +1,23 @@
 (function(){
   "use strict";
 
-  var warn = require('./../core/warn');
-  if(Object.prototype.any){
-    warn('Object', 'any');
-  }
+  Object.rearmed.add({
+    any: function(cb){
+      var bool = false;
 
-  Object.prototype.any = function(cb){
-    var bool = false;
-
-    if(!cb){
-      cb = function(){
-        return true;
+      if(!cb){
+        cb = function(){
+          return true;
+        }
       }
-    }
 
-    for(var k in this){
-      if(cb(k, this[k])){
-        bool = true;
-        break;
+      for(var k in this){
+        if(cb(k, this[k])){
+          bool = true;
+          break;
+        }
       }
+      return bool;
     }
-    return bool;
-  };
-
-  Object.defineProperty(Object.prototype, "any", {enumerable: false});
+  });
 }(this));

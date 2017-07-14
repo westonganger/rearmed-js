@@ -1,3 +1,5 @@
+require('./object/rearmed');
+
 require('./object/all');
 require('./object/any');
 require('./object/compact');
@@ -13,5 +15,5 @@ require('./object/keys');
 require('./object/merge');
 require('./object/only');
 require('./object/reject');
-require('./object/keepIf');
+require('./object/select');
 require('./object/values');

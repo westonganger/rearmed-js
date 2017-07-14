@@ -3,7 +3,8 @@
   "use strict";
 
   var Rearmed = {
-    isObjectLike: require('./../core/isObjectLike')
+    isObjectLike: require('./../core/isObjectLike'),
+    equals: require('./../core/equals')
   };
 
   var warn = require('./../core/warn');
@@ -12,43 +13,57 @@
   }
 
   Array.prototype.equals = function(array){
-    if(!array){
-      return false;
-    }
-
-    if(this.length !== array.length){
-      return false;
-    }
-
-    for(var i=0;i<this.length;i++){
-      var val = this[i];
-      var other = array[i]
-      if(Array.isArray(this[i]) && Array.isArray(other)){
-        if(!val.equals(other)){
-          return false;
-        }
-      }else if(Rearmed.isObjectLike(val) && Rearmed.isObjectLike(other)){
-        if(!val.equals(other)){
-          return false;
-        }
-      }else if(val !== other){
-        return false;
-      }
-    }
-    return true;
+    return Rearmed.equals(this, array);
   }
 
   Object.defineProperty(Array.prototype, "equals", {enumerable: false});
 }(this));
 
-},{"./../core/isObjectLike":2,"./../core/warn":3}],2:[function(require,module,exports){
+},{"./../core/equals":2,"./../core/isObjectLike":3,"./../core/warn":4}],2:[function(require,module,exports){
+var isObjectLike = require('./isObjectLike');
+
+function equals(obj1, obj2){
+  for(var propName in obj1){
+    if(obj1.hasOwnProperty(propName) != obj2.hasOwnProperty(propName)){
+      return false;
+    }else if(typeof obj1[propName] != typeof obj2[propName]){
+      return false;
+    }
+  }
+  for(var propName in obj2){
+    var val = obj1[propName];
+    var other = obj2[propName];
+    if(obj1.hasOwnProperty(propName) != obj2.hasOwnProperty(propName)){
+      return false;
+    }else if(typeof val != typeof other){
+      return false;
+    }
+
+    if(!obj1.hasOwnProperty(propName)){
+      continue;
+    }
+
+    if((Array.isArray(val) && Array.isArray(other)) || (isObjectLike(val) && isObjectLike(other))){
+      if(!equals(val, other)){
+        return false;
+      }
+    }else if(val != other){
+     return false;
+    }
+  }
+  return true;
+};
+
+module.exports = equals;
+
+},{"./isObjectLike":3}],3:[function(require,module,exports){
 function isObjectLike(value){
   return value != null && typeof value == 'object';
 };
 
 module.exports = isObjectLike;
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 function warn(type, method, notPrototype){
   if(type && method){
     console.warn("Rearmed-js Overriding " + type + (notPrototype ? '.' : '.prototype.') + method, '. If this is a built-in browser method please report on Rearmed-js github issues.');
