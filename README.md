@@ -340,8 +340,9 @@ str.upcase() // returns string
 - String `empty` doesnt work properly in old NodeJS 0.x.
 
 # Contributing
-- Only edit js files from src/ and test/ folders
-- Use the gulp task: `gulp` to run the build after making your changes
+- I recommend discussing your intentions via an issue before making a PR as they are very concious design choices that must go into this library.
+- Only edit js files from src/ and test/ folders.
+- Use the gulp task: `gulp` to run the build after making your changes.
 - Testing these methods are simple & easy. PR's should include tests.
 
 # Credits

@@ -1,7 +1,10 @@
 function isBlank(x){
-  val = true;
+  var val = true;
+  var length = x['length'];
 
-  if(x == true || typeof x == 'number'){
+  if(length || length == 0){
+    val = length == 0;
+  }else if(x == true || typeof x == 'number'){
     val = false;
   }else if(x){
     val = Object.keys(x).length == 0;
