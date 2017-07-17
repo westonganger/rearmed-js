@@ -2,7 +2,7 @@
 (function(){
   "use strict";
 
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(Array.range){
     warn('Array', 'range', true);
   }
@@ -33,7 +33,7 @@
   };
 }(this));
 
-},{"./../core/warn":2}],2:[function(require,module,exports){
+},{"./../functions/warn":2}],2:[function(require,module,exports){
 function warn(type, method, notPrototype){
   if(type && method){
     console.warn("Rearmed-js Overriding " + type + (notPrototype ? '.' : '.prototype.') + method, '. If this is a built-in browser method please report on Rearmed-js github issues.');

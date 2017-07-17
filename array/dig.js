@@ -2,11 +2,9 @@
 (function(){
   "use strict";
 
-  var Rearmed = {
-    isObjectLike: require('./../core/isObjectLike')
-  };
+  var simpleType = require('./../functions/simpleType');
 
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(Array.prototype.dig){
     warn('Array', 'dig');
   }
@@ -27,7 +25,8 @@
 
     var val = this;
     for(var i=0;i<arguments.length;i++){
-      if(Rearmed.isObjectLike(val)){
+      var type = simpleType(val);
+      if(type == 'Array' || type == 'Object'){
         val = val[arguments[i]];
       }else{
         val = undefined;
@@ -40,12 +39,26 @@
   Object.defineProperty(Array.prototype, "dig", {enumerable: false});
 }(this));
 
-},{"./../core/isObjectLike":2,"./../core/warn":3}],2:[function(require,module,exports){
-function isObjectLike(value){
-  return value != null && typeof value == 'object';
-};
+},{"./../functions/simpleType":2,"./../functions/warn":3}],2:[function(require,module,exports){
+function simpleType(x){
+  var val = typeof x;
 
-module.exports = isObjectLike;
+  if(val == 'number'){
+    val = 'Number';
+  }else if(val == 'string'){
+    val = 'String';
+  }else if(val == 'boolean'){
+    val = 'Boolean';
+  }else if(!!(x && x.constructor && x.call && x.apply)){
+    val = 'Function';
+  }else if(x != null && val == 'object'){
+    val = Array.isArray(x) ? 'Array' : 'Object';
+  }
+
+  return val;
+}
+
+module.exports = simpleType;
 
 },{}],3:[function(require,module,exports){
 function warn(type, method, notPrototype){

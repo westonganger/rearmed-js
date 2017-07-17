@@ -1,14 +1,12 @@
 (function(){
   "use strict";
 
-  var Rearmed = {
-    isFunction: require('./../core/isFunction')
-  };
+  var simpleType = require('./../functions/simpleType');
 
   if(!Array.prototype.find){
     Array.prototype.find = function(cb){
       var item;
-      var hasCallback = Rearmed.isFunction(cb);
+      var hasCallback = simpleType(cb) == 'Function';
       for(var i=0;i<this.length;i++){
         var val = this[i];
         if(hasCallback ? cb(val, i) : (cb === val)){

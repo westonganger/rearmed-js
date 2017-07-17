@@ -1,7 +1,7 @@
 (function(){
   "use strict";
   
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(String.prototype.caseCmp){
     warn('String', 'caseCmp');
   }

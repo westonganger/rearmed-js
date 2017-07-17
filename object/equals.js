@@ -1,7 +1,9 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var isObjectLike = require('./isObjectLike');
-
 function equals(obj1, obj2){
+  if((obj1 == null || typeof obj1 != 'object') || (obj2 == null || typeof obj2 != 'object')){
+    return obj1 == obj2;
+  }
+
   for(var propName in obj1){
     if(obj1.hasOwnProperty(propName) != obj2.hasOwnProperty(propName)){
       return false;
@@ -22,12 +24,8 @@ function equals(obj1, obj2){
       continue;
     }
 
-    if((Array.isArray(val) && Array.isArray(other)) || (isObjectLike(val) && isObjectLike(other))){
-      if(!equals(val, other)){
-        return false;
-      }
-    }else if(val != other){
-     return false;
+    if(!equals(val, other)){
+      return false;
     }
   }
   return true;
@@ -35,19 +33,12 @@ function equals(obj1, obj2){
 
 module.exports = equals;
 
-},{"./isObjectLike":2}],2:[function(require,module,exports){
-function isObjectLike(value){
-  return value != null && typeof value == 'object';
-};
-
-module.exports = isObjectLike;
-
-},{}],3:[function(require,module,exports){
+},{}],2:[function(require,module,exports){
 (function(){
   "use strict";
 
   var Rearmed = {
-    equals: require('./../core/equals')
+    equals: require('./../functions/equals')
   };
 
   Object.rearmed.add({
@@ -57,4 +48,4 @@ module.exports = isObjectLike;
   });
 }(this));
 
-},{"./../core/equals":1}]},{},[3]);
+},{"./../functions/equals":1}]},{},[2]);

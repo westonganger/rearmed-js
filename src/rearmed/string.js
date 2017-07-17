@@ -8,7 +8,6 @@ require('./string/excludes');
 require('./string/gsub');
 require('./string/includes');
 require('./string/lstrip');
-require('./string/notEmpty');
 require('./string/reverse');
 require('./string/rstrip');
 require('./string/startsWith');

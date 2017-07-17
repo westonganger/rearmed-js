@@ -1,18 +1,16 @@
 (function(){
   "use strict";
 
-  var Rearmed = {
-    isFunction: require('./../core/isFunction')
-  };
+  var simpleType = require('./../functions/simpleType');
 
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(Array.prototype.uniq){
     warn('Array', 'uniq');
   }
 
   Array.prototype.uniq = function(cb){
     var uniqItems = [];
-    var hasCallback = Rearmed.isFunction(cb);
+    var hasCallback = simpleType(cb) == 'Function';
 
     return this.filter(function(x,i){
       var val = hasCallback ? cb(x,i) : x;

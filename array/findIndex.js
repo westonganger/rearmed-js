@@ -2,14 +2,12 @@
 (function(){
   "use strict";
 
-  var Rearmed = {
-    isFunction: require('./../core/isFunction')
-  };
+  var simpleType = require('./../functions/simpleType');
 
   if(!Array.prototype.findIndex){
     Array.prototype.findIndex = function(cb){
       var index = -1;
-      var hasCallback = Rearmed.isFunction(cb);
+      var hasCallback = simpleType(cb) == 'Function';
       for(var i=0;i<this.length;i++){
         if(hasCallback ? cb(this[i], i) : (cb === this[i])){
           index = i;
@@ -23,11 +21,25 @@
   }
 }(this));
 
-},{"./../core/isFunction":2}],2:[function(require,module,exports){
-function isFunction(obj){
-  return !!(obj && obj.constructor && obj.call && obj.apply);
-};
+},{"./../functions/simpleType":2}],2:[function(require,module,exports){
+function simpleType(x){
+  var val = typeof x;
 
-module.exports = isFunction;
+  if(val == 'number'){
+    val = 'Number';
+  }else if(val == 'string'){
+    val = 'String';
+  }else if(val == 'boolean'){
+    val = 'Boolean';
+  }else if(!!(x && x.constructor && x.call && x.apply)){
+    val = 'Function';
+  }else if(x != null && val == 'object'){
+    val = Array.isArray(x) ? 'Array' : 'Object';
+  }
+
+  return val;
+}
+
+module.exports = simpleType;
 
 },{}]},{},[1]);

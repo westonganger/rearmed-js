@@ -1,9 +1,7 @@
 (function(){
   "use strict";
 
-  var Rearmed = {
-    isObjectLike: require('./../core/isObjectLike')
-  };
+  var simpleType = require('./../functions/simpleType');
 
   Object.rearmed.add({
     dig: function(){
@@ -22,7 +20,8 @@
 
       var val = this;
       for(var k in arguments){
-        if(Rearmed.isObjectLike(val)){
+        var type = simpleType(val);
+        if(type == 'Array' || type == 'Object'){
           val = val[arguments[k]];
         }else{
           val = undefined;

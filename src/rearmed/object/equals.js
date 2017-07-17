@@ -2,7 +2,7 @@
   "use strict";
 
   var Rearmed = {
-    equals: require('./../core/equals')
+    equals: require('./../functions/equals')
   };
 
   Object.rearmed.add({

@@ -1,14 +1,12 @@
 (function(){
   "use strict";
 
-  var Rearmed = {
-    isFunction: require('./../core/isFunction')
-  };
+  var simpleType = require('./../functions/simpleType');
 
   if(!Array.prototype.findIndex){
     Array.prototype.findIndex = function(cb){
       var index = -1;
-      var hasCallback = Rearmed.isFunction(cb);
+      var hasCallback = simpleType(cb) == 'Function';
       for(var i=0;i<this.length;i++){
         if(hasCallback ? cb(this[i], i) : (cb === this[i])){
           index = i;

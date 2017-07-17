@@ -8,7 +8,7 @@ var gulp = require('gulp'),
     tap = require('gulp-tap'),
     browserify = require('browserify');
 
-var tasks = ['rearmed','array','object','number','string','core'];
+var tasks = ['rearmed','array','object','number','string','generic'];
 
 tasks.forEach(function(item, i){
   gulp.task(item, [], function(cb){
@@ -32,9 +32,7 @@ tasks.forEach(function(item, i){
 
       gulp.dest('./'),
 
-      uglify({
-        preserveComments: 'license'
-      }), 
+      uglify(), 
 
       rename({
         suffix: '.min'
@@ -59,9 +57,7 @@ gulp.task('other', [], function(cb){
 
     gulp.dest('./'),
 
-    uglify({
-      preserveComments: 'license'
-    }), 
+    uglify(), 
 
     rename(function(path){
       path.dirname = path.dirname.replace('rearmed/','')

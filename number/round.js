@@ -13,7 +13,7 @@ module.exports = warn;
 (function(){
   "use strict";
 
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(Number.prototype.round){
     warn('Number', 'round');
   }
@@ -25,4 +25,4 @@ module.exports = warn;
   Object.defineProperty(Number.prototype, "round", {enumerable: false});
 }(this));
 
-},{"./../core/warn":1}]},{},[2]);
+},{"./../functions/warn":1}]},{},[2]);

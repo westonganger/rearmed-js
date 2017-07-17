@@ -1,7 +1,9 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var isObjectLike = require('./isObjectLike');
-
 function equals(obj1, obj2){
+  if((obj1 == null || typeof obj1 != 'object') || (obj2 == null || typeof obj2 != 'object')){
+    return obj1 == obj2;
+  }
+
   for(var propName in obj1){
     if(obj1.hasOwnProperty(propName) != obj2.hasOwnProperty(propName)){
       return false;
@@ -22,12 +24,8 @@ function equals(obj1, obj2){
       continue;
     }
 
-    if((Array.isArray(val) && Array.isArray(other)) || (isObjectLike(val) && isObjectLike(other))){
-      if(!equals(val, other)){
-        return false;
-      }
-    }else if(val != other){
-     return false;
+    if(!equals(val, other)){
+      return false;
     }
   }
   return true;
@@ -35,12 +33,26 @@ function equals(obj1, obj2){
 
 module.exports = equals;
 
-},{"./isObjectLike":2}],2:[function(require,module,exports){
-function isObjectLike(value){
-  return value != null && typeof value == 'object';
-};
+},{}],2:[function(require,module,exports){
+function simpleType(x){
+  var val = typeof x;
 
-module.exports = isObjectLike;
+  if(val == 'number'){
+    val = 'Number';
+  }else if(val == 'string'){
+    val = 'String';
+  }else if(val == 'boolean'){
+    val = 'Boolean';
+  }else if(!!(x && x.constructor && x.call && x.apply)){
+    val = 'Function';
+  }else if(x != null && val == 'object'){
+    val = Array.isArray(x) ? 'Array' : 'Object';
+  }
+
+  return val;
+}
+
+module.exports = simpleType;
 
 },{}],3:[function(require,module,exports){
 require('./object/rearmed');
@@ -157,9 +169,7 @@ require('./object/values');
 (function(){
   "use strict";
 
-  var Rearmed = {
-    isObjectLike: require('./../core/isObjectLike')
-  };
+  var simpleType = require('./../functions/simpleType');
 
   Object.rearmed.add({
     dig: function(){
@@ -178,7 +188,8 @@ require('./object/values');
 
       var val = this;
       for(var k in arguments){
-        if(Rearmed.isObjectLike(val)){
+        var type = simpleType(val);
+        if(type == 'Array' || type == 'Object'){
           val = val[arguments[k]];
         }else{
           val = undefined;
@@ -190,7 +201,7 @@ require('./object/values');
   });
 }(this));
 
-},{"./../core/isObjectLike":2}],8:[function(require,module,exports){
+},{"./../functions/simpleType":2}],8:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -219,7 +230,7 @@ require('./object/values');
   "use strict";
 
   var Rearmed = {
-    equals: require('./../core/equals')
+    equals: require('./../functions/equals')
   };
 
   Object.rearmed.add({
@@ -229,7 +240,7 @@ require('./object/values');
   });
 }(this));
 
-},{"./../core/equals":1}],11:[function(require,module,exports){
+},{"./../functions/equals":1}],11:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -331,11 +342,7 @@ require('./object/values');
 
   Object.rearmed.add({
     keys: function(){
-      var arr = [];
-      for(var k in this){
-        arr.push(k);
-      }
-      return arr;
+      return Object.keys(this);
     }
   });
 }(this));
@@ -404,7 +411,7 @@ if(!Object.prototype.rearmed){
     }
   }
 
-  var isObjectLike = require('./../core/isObjectLike');
+  var simpleType = require('./../functions/simpleType');
 
   Object.prototype.rearmed = function(){
     return new RearmedObject(this);
@@ -417,7 +424,7 @@ if(!Object.prototype.rearmed){
     },
 
     add: function(obj){
-      if(isObjectLike(obj)){
+      if(simpleType(obj) == 'Object'){
         for(var k in obj){
           RearmedObject.prototype[k] = obj[k];
           Object.defineProperty(RearmedObject.prototype, k, {enumerable: false});
@@ -459,7 +466,7 @@ if(!Object.prototype.rearmed){
 
 }
 
-},{"./../core/isObjectLike":2}],19:[function(require,module,exports){
+},{"./../functions/simpleType":2}],19:[function(require,module,exports){
 (function(){
   "use strict";
 

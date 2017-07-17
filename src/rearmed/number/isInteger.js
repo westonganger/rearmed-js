@@ -1,7 +1,7 @@
 (function(){
   "use strict";
 
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(Number.prototype.isInteger){
     warn('Number', 'isInteger');
   }

@@ -1,7 +1,7 @@
 (function(){
   "use strict";
 
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(Array.prototype.excludes){
     warn('Array', 'excludes');
   }

@@ -20,7 +20,6 @@ require('./string/excludes');
 require('./string/gsub');
 require('./string/includes');
 require('./string/lstrip');
-require('./string/notEmpty');
 require('./string/reverse');
 require('./string/rstrip');
 require('./string/startsWith');
@@ -30,11 +29,11 @@ require('./string/titleize');
 require('./string/toBool');
 require('./string/upcase');
 
-},{"./string/capitalize":3,"./string/caseCmp":4,"./string/chars":5,"./string/downcase":6,"./string/empty":7,"./string/endsWith":8,"./string/excludes":9,"./string/gsub":10,"./string/includes":11,"./string/lstrip":12,"./string/notEmpty":13,"./string/reverse":14,"./string/rstrip":15,"./string/startsWith":16,"./string/strip":17,"./string/sub":18,"./string/titleize":19,"./string/toBool":20,"./string/upcase":21}],3:[function(require,module,exports){
+},{"./string/capitalize":3,"./string/caseCmp":4,"./string/chars":5,"./string/downcase":6,"./string/empty":7,"./string/endsWith":8,"./string/excludes":9,"./string/gsub":10,"./string/includes":11,"./string/lstrip":12,"./string/reverse":13,"./string/rstrip":14,"./string/startsWith":15,"./string/strip":16,"./string/sub":17,"./string/titleize":18,"./string/toBool":19,"./string/upcase":20}],3:[function(require,module,exports){
 (function(){
   "use strict";
 
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(String.prototype.capitalize){
     warn('String', 'capitalize');
   }
@@ -46,11 +45,11 @@ require('./string/upcase');
   Object.defineProperty(String.prototype, "capitalize", {enumerable: false});
 }(this));
 
-},{"./../core/warn":1}],4:[function(require,module,exports){
+},{"./../functions/warn":1}],4:[function(require,module,exports){
 (function(){
   "use strict";
   
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(String.prototype.caseCmp){
     warn('String', 'caseCmp');
   }
@@ -62,11 +61,11 @@ require('./string/upcase');
   Object.defineProperty(String.prototype, "caseCmp", {enumerable: false});
 }(this));
 
-},{"./../core/warn":1}],5:[function(require,module,exports){
+},{"./../functions/warn":1}],5:[function(require,module,exports){
 (function(){
   "use strict";
   
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(String.prototype.chars){
     warn('String', 'chars');
   }
@@ -88,11 +87,11 @@ require('./string/upcase');
   Object.defineProperty(String.prototype, "chars", {enumerable: false});
 }(this));
 
-},{"./../core/warn":1}],6:[function(require,module,exports){
+},{"./../functions/warn":1}],6:[function(require,module,exports){
 (function(){
   "use strict";
 
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(String.prototype.downcase){
     warn('String', 'downcase');
   }
@@ -104,7 +103,7 @@ require('./string/upcase');
   Object.defineProperty(String.prototype, "downcase", {enumerable: false});
 }(this));
 
-},{"./../core/warn":1}],7:[function(require,module,exports){
+},{"./../functions/warn":1}],7:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -134,7 +133,7 @@ require('./string/upcase');
 (function(){
   "use strict";
   
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(String.prototype.excludes){
     warn('String', 'excludes');
   }
@@ -146,11 +145,11 @@ require('./string/upcase');
   Object.defineProperty(String.prototype, "excludes", {enumerable: false});
 }(this));
 
-},{"./../core/warn":1}],10:[function(require,module,exports){
+},{"./../functions/warn":1}],10:[function(require,module,exports){
 (function(){
   "use strict";
 
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(String.prototype.gsub){
     warn('String', 'gsub');
   }
@@ -162,7 +161,7 @@ require('./string/upcase');
   Object.defineProperty(String.prototype, "gsub", {enumerable: false});
 }(this));
 
-},{"./../core/warn":1}],11:[function(require,module,exports){
+},{"./../functions/warn":1}],11:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -179,7 +178,7 @@ require('./string/upcase');
 (function(){
   "use strict";
 
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(String.prototype.lstrip){
     warn('String', 'lstrip');
   }
@@ -191,27 +190,11 @@ require('./string/upcase');
   Object.defineProperty(String.prototype, "lstrip", {enumerable: false});
 }(this));
 
-},{"./../core/warn":1}],13:[function(require,module,exports){
+},{"./../functions/warn":1}],13:[function(require,module,exports){
 (function(){
   "use strict";
 
-  var warn = require('./../core/warn');
-  if(String.prototype.notEmpty){
-    warn('String', 'notEmpty');
-  }
-
-  String.prototype.notEmpty = function(){
-    return this.length !== 0;
-  };
-
-  Object.defineProperty(String.prototype, "notEmpty", {enumerable: false});
-}(this));
-
-},{"./../core/warn":1}],14:[function(require,module,exports){
-(function(){
-  "use strict";
-
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(String.prototype.reverse){
     warn('String', 'reverse');
   }
@@ -235,11 +218,11 @@ require('./string/upcase');
   Object.defineProperty(String.prototype, "reverse", {enumerable: false});
 }(this));
 
-},{"./../core/warn":1}],15:[function(require,module,exports){
+},{"./../functions/warn":1}],14:[function(require,module,exports){
 (function(){
   "use strict";
 
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(String.prototype.rstrip){
     warn('String', 'rstrip');
   }
@@ -251,7 +234,7 @@ require('./string/upcase');
   Object.defineProperty(String.prototype, "rstrip", {enumerable: false});
 }(this));
 
-},{"./../core/warn":1}],16:[function(require,module,exports){
+},{"./../functions/warn":1}],15:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -264,11 +247,11 @@ require('./string/upcase');
   }
 }(this));
 
-},{}],17:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 (function(){
   "use strict";
 
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(String.prototype.strip){
     warn('String', 'strip');
   }
@@ -284,7 +267,7 @@ require('./string/upcase');
   Object.defineProperty(String.prototype, "strip", {enumerable: false});
 }(this));
 
-},{"./../core/warn":1}],18:[function(require,module,exports){
+},{"./../functions/warn":1}],17:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -301,11 +284,11 @@ require('./string/upcase');
   Object.defineProperty(String.prototype, "sub", {enumerable: false});
 }(this));
 
-},{}],19:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 (function(){
   "use strict";
 
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(String.prototype.titleize){
     warn('String', 'titleize');
   }
@@ -325,11 +308,11 @@ require('./string/upcase');
   Object.defineProperty(String.prototype, "titleize", {enumerable: false});
 }(this));
 
-},{"./../core/warn":1}],20:[function(require,module,exports){
+},{"./../functions/warn":1}],19:[function(require,module,exports){
 (function(){
   "use strict";
 
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(String.prototype.toBool){
     warn('String', 'toBool');
   }
@@ -345,11 +328,11 @@ require('./string/upcase');
   Object.defineProperty(String.prototype, "toBool", {enumerable: false});
 }(this));
 
-},{"./../core/warn":1}],21:[function(require,module,exports){
+},{"./../functions/warn":1}],20:[function(require,module,exports){
 (function(){
   "use strict";
 
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(String.prototype.upcase){
     warn('String', 'upcase');
   }
@@ -361,4 +344,4 @@ require('./string/upcase');
   Object.defineProperty(String.prototype, "upcase", {enumerable: false});
 }(this));
 
-},{"./../core/warn":1}]},{},[2]);
+},{"./../functions/warn":1}]},{},[2]);

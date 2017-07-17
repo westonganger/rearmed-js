@@ -1,11 +1,9 @@
 (function(){
   "use strict";
 
-  var Rearmed = {
-    isObjectLike: require('./../core/isObjectLike')
-  };
+  var simpleType = require('./../functions/simpleType');
 
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(Array.prototype.dig){
     warn('Array', 'dig');
   }
@@ -26,7 +24,8 @@
 
     var val = this;
     for(var i=0;i<arguments.length;i++){
-      if(Rearmed.isObjectLike(val)){
+      var type = simpleType(val);
+      if(type == 'Array' || type == 'Object'){
         val = val[arguments[i]];
       }else{
         val = undefined;

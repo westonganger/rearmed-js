@@ -1,12 +1,9 @@
 (function(){
   "use strict";
 
-  var Rearmed = {
-    isObjectLike: require('./../core/isObjectLike'),
-    equals: require('./../core/equals')
-  };
+  var equals = require('./../functions/equals');
 
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(Array.prototype.smartExcludes){
     warn('Array', 'smartExcludes');
   }
@@ -15,13 +12,7 @@
     var fromIndex = fromIndex || 0;
     var bool = true;
     for(var i=fromIndex;i<this.length;i++){
-      var val = this[i];
-      if(Rearmed.isObjectLike(val)){
-        if(Rearmed.equals(val, x)){
-          bool = false;
-          break;
-        }
-      }else if(val === x){
+      if(equals(this[i], x)){
         bool = false;
         break;
       }

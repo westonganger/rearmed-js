@@ -1,18 +1,16 @@
 (function(){
   "use strict";
 
-  var Rearmed = {
-    isFunction: require('./../core/isFunction')
-  };
+  var simpleType = require('./../functions/simpleType');
 
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(Array.prototype.maxBy){
     warn('Array', 'maxBy');
   }
 
   Array.prototype.maxBy = function(cb){
     var current, max;
-    var hasCallback = Rearmed.isFunction(cb);
+    var hasCallback = simpleType(cb) == 'Function';
     for(var i=0;i<this.length;i++){
       var item = this[i];
       var val = hasCallback ? cb(item, i) : item;

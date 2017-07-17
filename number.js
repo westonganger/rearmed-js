@@ -22,7 +22,7 @@ require('./number/round');
 (function(){
   "use strict";
 
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(Number.prototype.ceil){
     warn('Number', 'ceil');
   }
@@ -34,11 +34,11 @@ require('./number/round');
   Object.defineProperty(Number.prototype, "ceil", {enumerable: false});
 }(this));
 
-},{"./../core/warn":1}],4:[function(require,module,exports){
+},{"./../functions/warn":1}],4:[function(require,module,exports){
 (function(){
   "use strict";
 
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(Number.prototype.floor){
     warn('Number', 'floor');
   }
@@ -50,11 +50,11 @@ require('./number/round');
   Object.defineProperty(Number.prototype, "floor", {enumerable: false});
 }(this));
 
-},{"./../core/warn":1}],5:[function(require,module,exports){
+},{"./../functions/warn":1}],5:[function(require,module,exports){
 (function(){
   "use strict";
 
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(Number.prototype.isDecimal){
     warn('Number', 'isDecimal');
   }
@@ -70,11 +70,11 @@ require('./number/round');
   Object.defineProperty(Number.prototype, "isDecimal", {enumerable: false});
 }(this));
 
-},{"./../core/warn":1}],6:[function(require,module,exports){
+},{"./../functions/warn":1}],6:[function(require,module,exports){
 (function(){
   "use strict";
 
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(Number.prototype.isEven){
     warn('Number', 'isEven');
   }
@@ -86,11 +86,11 @@ require('./number/round');
   Object.defineProperty(Number.prototype, "isEven", {enumerable: false});
 }(this));
 
-},{"./../core/warn":1}],7:[function(require,module,exports){
+},{"./../functions/warn":1}],7:[function(require,module,exports){
 (function(){
   "use strict";
 
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(Number.prototype.isInteger){
     warn('Number', 'isInteger');
   }
@@ -106,11 +106,11 @@ require('./number/round');
   Object.defineProperty(Number.prototype, "isInteger", {enumerable: false});
 }(this));
 
-},{"./../core/warn":1}],8:[function(require,module,exports){
+},{"./../functions/warn":1}],8:[function(require,module,exports){
 (function(){
   "use strict";
 
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(Number.prototype.isOdd){
     warn('Number', 'isOdd');
   }
@@ -122,11 +122,11 @@ require('./number/round');
   Object.defineProperty(Number.prototype, "isOdd", {enumerable: false});
 }(this));
 
-},{"./../core/warn":1}],9:[function(require,module,exports){
+},{"./../functions/warn":1}],9:[function(require,module,exports){
 (function(){
   "use strict";
 
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(Number.prototype.round){
     warn('Number', 'round');
   }
@@ -138,4 +138,4 @@ require('./number/round');
   Object.defineProperty(Number.prototype, "round", {enumerable: false});
 }(this));
 
-},{"./../core/warn":1}]},{},[2]);
+},{"./../functions/warn":1}]},{},[2]);

@@ -13,7 +13,7 @@ module.exports = warn;
 (function(){
   "use strict";
   
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(String.prototype.excludes){
     warn('String', 'excludes');
   }
@@ -25,4 +25,4 @@ module.exports = warn;
   Object.defineProperty(String.prototype, "excludes", {enumerable: false});
 }(this));
 
-},{"./../core/warn":1}]},{},[2]);
+},{"./../functions/warn":1}]},{},[2]);

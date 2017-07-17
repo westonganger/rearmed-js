@@ -2,27 +2,26 @@
 (function(){
   "use strict";
 
-  var Rearmed = {
-    isObjectLike: require('./../core/isObjectLike'),
-    equals: require('./../core/equals')
-  };
+  var equals = require('./../functions/equals');
 
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(Array.prototype.equals){
     warn('Array', 'equals');
   }
 
   Array.prototype.equals = function(array){
-    return Rearmed.equals(this, array);
+    return equals(this, array);
   }
 
   Object.defineProperty(Array.prototype, "equals", {enumerable: false});
 }(this));
 
-},{"./../core/equals":2,"./../core/isObjectLike":3,"./../core/warn":4}],2:[function(require,module,exports){
-var isObjectLike = require('./isObjectLike');
-
+},{"./../functions/equals":2,"./../functions/warn":3}],2:[function(require,module,exports){
 function equals(obj1, obj2){
+  if((obj1 == null || typeof obj1 != 'object') || (obj2 == null || typeof obj2 != 'object')){
+    return obj1 == obj2;
+  }
+
   for(var propName in obj1){
     if(obj1.hasOwnProperty(propName) != obj2.hasOwnProperty(propName)){
       return false;
@@ -43,12 +42,8 @@ function equals(obj1, obj2){
       continue;
     }
 
-    if((Array.isArray(val) && Array.isArray(other)) || (isObjectLike(val) && isObjectLike(other))){
-      if(!equals(val, other)){
-        return false;
-      }
-    }else if(val != other){
-     return false;
+    if(!equals(val, other)){
+      return false;
     }
   }
   return true;
@@ -56,14 +51,7 @@ function equals(obj1, obj2){
 
 module.exports = equals;
 
-},{"./isObjectLike":3}],3:[function(require,module,exports){
-function isObjectLike(value){
-  return value != null && typeof value == 'object';
-};
-
-module.exports = isObjectLike;
-
-},{}],4:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 function warn(type, method, notPrototype){
   if(type && method){
     console.warn("Rearmed-js Overriding " + type + (notPrototype ? '.' : '.prototype.') + method, '. If this is a built-in browser method please report on Rearmed-js github issues.');

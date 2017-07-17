@@ -5,7 +5,7 @@ if(!Object.prototype.rearmed){
     }
   }
 
-  var isObjectLike = require('./../core/isObjectLike');
+  var simpleType = require('./../functions/simpleType');
 
   Object.prototype.rearmed = function(){
     return new RearmedObject(this);
@@ -18,7 +18,7 @@ if(!Object.prototype.rearmed){
     },
 
     add: function(obj){
-      if(isObjectLike(obj)){
+      if(simpleType(obj) == 'Object'){
         for(var k in obj){
           RearmedObject.prototype[k] = obj[k];
           Object.defineProperty(RearmedObject.prototype, k, {enumerable: false});

@@ -437,18 +437,6 @@ describe('Array', function() {
     });
   });
 
-  describe('#notEmpty', function() {
-    it('1', function() {
-      var x = [1,2,3];
-      assert.equal(x.notEmpty(), true);
-    });
-
-    it('2', function() {
-      var x = [];
-      assert.equal(x.notEmpty(), false);
-    });
-  });
-
   describe('#range', function() {
     it('1', function() {
       assert.deepEqual(Array.range(0,0), [0]);
@@ -605,6 +593,34 @@ describe('Array', function() {
       assert.throws(function(){
         x.sum()
       });
+    });
+  });
+
+  describe('#tap', function() {
+    it('1', function() {
+      var x = [1,2,3];
+      assert.deepEqual(x.tap(function(x, i){
+        assert.equal(typeof x, 'number');
+        assert.equal(typeof i, 'number');
+        return i;
+      }), x);
+    });
+
+    it('2', function() {
+      var x = [];
+      assert.deepEqual(x.tap(function(x, i){
+        assert.equal(typeof x, 'number');
+        assert.equal(typeof i, 'number');
+        return i;
+      }), x);
+    });
+
+    it('3', function() {
+      var x = [];
+      assert.deepEqual(x.tap(function(x, i){
+        assert.equal(typeof x, 'number');
+        assert.equal(typeof i, 'number');
+      }), x);
     });
   });
 

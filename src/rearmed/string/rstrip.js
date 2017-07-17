@@ -1,7 +1,7 @@
 (function(){
   "use strict";
 
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(String.prototype.rstrip){
     warn('String', 'rstrip');
   }

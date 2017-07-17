@@ -2,18 +2,16 @@
 (function(){
   "use strict";
 
-  var Rearmed = {
-    isFunction: require('./../core/isFunction')
-  };
+  var simpleType = require('./../functions/simpleType');
 
-  var warn = require('./../core/warn');
+  var warn = require('./../functions/warn');
   if(Array.prototype.maxBy){
     warn('Array', 'maxBy');
   }
 
   Array.prototype.maxBy = function(cb){
     var current, max;
-    var hasCallback = Rearmed.isFunction(cb);
+    var hasCallback = simpleType(cb) == 'Function';
     for(var i=0;i<this.length;i++){
       var item = this[i];
       var val = hasCallback ? cb(item, i) : item;
@@ -29,12 +27,26 @@
   Object.defineProperty(Array.prototype, "maxBy", {enumerable: false});
 }(this));
 
-},{"./../core/isFunction":2,"./../core/warn":3}],2:[function(require,module,exports){
-function isFunction(obj){
-  return !!(obj && obj.constructor && obj.call && obj.apply);
-};
+},{"./../functions/simpleType":2,"./../functions/warn":3}],2:[function(require,module,exports){
+function simpleType(x){
+  var val = typeof x;
 
-module.exports = isFunction;
+  if(val == 'number'){
+    val = 'Number';
+  }else if(val == 'string'){
+    val = 'String';
+  }else if(val == 'boolean'){
+    val = 'Boolean';
+  }else if(!!(x && x.constructor && x.call && x.apply)){
+    val = 'Function';
+  }else if(x != null && val == 'object'){
+    val = Array.isArray(x) ? 'Array' : 'Object';
+  }
+
+  return val;
+}
+
+module.exports = simpleType;
 
 },{}],3:[function(require,module,exports){
 function warn(type, method, notPrototype){
