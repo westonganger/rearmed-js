@@ -89,8 +89,9 @@ require('./generic/isBlank');
 require('./generic/isPresent');
 require('./generic/presence');
 require('./generic/simpleType');
+require('./generic/try');
 
-},{"./generic/equals":6,"./generic/isBlank":7,"./generic/isPresent":8,"./generic/presence":9,"./generic/simpleType":10}],6:[function(require,module,exports){
+},{"./generic/equals":6,"./generic/isBlank":7,"./generic/isPresent":8,"./generic/presence":9,"./generic/simpleType":10,"./generic/try":11}],6:[function(require,module,exports){
 (function(){
   "use strict";
 
@@ -180,4 +181,30 @@ require('./generic/simpleType');
   Object.defineProperty(Object.prototype, "simpleType", {enumerable: false});
 }(this));
 
-},{"./../functions/simpleType":3,"./../functions/warn":4}]},{},[5]);
+},{"./../functions/simpleType":3,"./../functions/warn":4}],11:[function(require,module,exports){
+(function(){
+  "use strict";
+
+  if(!Object.prototype.try){
+    var simpleType = require('./../functions/simpleType');
+
+    Object.prototype.try = function(x){
+      var val = this[x];
+      if(val || val === 0 || val === ''){
+        if(simpleType(val) === 'Function'){
+          if(arguments.length > 1){
+            var args = Array.prototype.slice.call(arguments);
+            args.shift();
+          }
+          val = val.apply(this, args);
+        }
+        return (val || val === 0 || val === '') ? val : false;
+      }
+      return false;
+    };
+
+    Object.defineProperty(Object.prototype, "try", {enumerable: false});
+  }
+}(this));
+
+},{"./../functions/simpleType":3}]},{},[5]);

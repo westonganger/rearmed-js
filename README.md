@@ -1,7 +1,5 @@
 # Rearmed-JS [![Build Status](https://api.travis-ci.org/westonganger/rearmed-js.svg?branch=master)](https://travis-ci.org/westonganger/rearmed-js)
 
-<a href='https://ko-fi.com/A5071NK' target='_blank'><img height='32' style='border:0px;height:32px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=a' border='0' alt='Buy Me a Coffee' /></a> 
-
 ## Note: Current Readme is for master/v2.0.0, Latest NPM release is v1.0.0
 
 This library is a collection of helpful methods and monkey patches for Arrays, Objects, Numbers, and Strings. Start writing your Javascript like you write your Ruby code! 
@@ -116,7 +114,7 @@ require('rearmed/array/select');
 
 ## Generic
 
-These methods are available on all types
+These methods are available on all types that inherit from Object which is almost everything.
 
 ```javascript
 var cb = function(){ };
@@ -136,6 +134,11 @@ array.presence(); // returns self or false
 
 cb.simpleType(); // return str
 // possible return values are 'Object','Array','String','Boolean','Number','Function','Other'
+
+// return value or false
+str.try('length'); // => 0
+array.try('sort'); // => []
+str.try('badMethod').try('anotherBadMethod'); // => false
 ```
 
 ## Array
@@ -346,6 +349,12 @@ str.upcase() // returns string
 - Testing these methods are simple & easy. PR's should include tests.
 
 # Credits
-Created by Weston Ganger - @westonganger
+Created by Weston Ganger - [@westonganger](https://github.com/westonganger)
 
-<a href='https://ko-fi.com/A5071NK' target='_blank'><img height='32' style='border:0px;height:32px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=a' border='0' alt='Buy Me a Coffee' /></a> 
+For any consulting or contract work please contact me via my company website: [Solid Foundation Web Development](https://solidfoundationwebdev.com)
+
+## Similar Libraries Created By Me
+- [JS-Try](https://github.com/westonganger/js-try)
+- [Rearmed-CSS](https://github.com/westonganger/rearmed-css)
+- [Rearmed Ruby](https://github.com/westonganger/rearmed-rb)
+- [Rearmed Rails](https://github.com/westonganger/rearmed_rails)
