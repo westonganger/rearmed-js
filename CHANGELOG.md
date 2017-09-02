@@ -1,7 +1,7 @@
 # Changelog
 
-- `v2.0.0` - UNRELEASED
-  * Move all Object patches under `Object.prototype.rearmed()` and `Object.rearmed` method to fix issue #2
+- `v2.0.0` - Sept 2, 2017
+  * Make all Object patches  much safer by moving them under `Object.prototype.rearmed()` and `Object.rearmed` method to fix issue #2
   * Add `Object#rearmed.add()` and `Object.rearmed.remove()` methods for adding or removing methods to rearmed objects
   * Remove Core section to be replaced with Generic section
   * Add Generic `isBlank`, `isPresent`, `presence`, `simpleType`, `try`

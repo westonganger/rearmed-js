@@ -1,12 +1,10 @@
 # Rearmed-JS [![Build Status](https://api.travis-ci.org/westonganger/rearmed-js.svg?branch=master)](https://travis-ci.org/westonganger/rearmed-js)
 
-## Note: Current Readme is for master/v2.0.0, Latest NPM release is v1.0.0
+This library is a collection of helpful methods and monkey patches for Arrays, Objects, Numbers, and Strings in Javascript. Start writing your Javascript like you write your Ruby code! 
 
-This library is a collection of helpful methods and monkey patches for Arrays, Objects, Numbers, and Strings. Start writing your Javascript like you write your Ruby code! 
+Works in the Browser and in NodeJS.
 
-Works in the browser and in NodeJS.
-
-4.5kb minified and gzipped.
+5.1kb minified and gzipped.
 
 
 # Install
@@ -54,42 +52,42 @@ Note: Only import/require the patches once at the beginning of your page or app 
 
 ### ES7+
 ```javascript
-import 'rearmed'; // import everything
+import 'rearmed-js'; // import everything
 
 // OR 
 
 // import patches for certain object types only
-import 'rearmed/array';
-import 'rearmed/number';
-import 'rearmed/object';
-import 'rearmed/string';
-import 'rearmed/generic';
+import 'rearmed-js/array';
+import 'rearmed-js/number';
+import 'rearmed-js/object';
+import 'rearmed-js/string';
+import 'rearmed-js/generic';
 
 // OR
 
 // import only the methods you want
-import 'rearmed/array/reject';
-import 'rearmed/array/select';
+import 'rearmed-js/array/reject';
+import 'rearmed-js/array/select';
 ```
 
 ### ES6
 ```javascript
-require('rearmed') // require everything
+require('rearmed-js') // require everything
 
 // OR
 
 // require patches for certain object types only
-require('rearmed/array');
-require('rearmed/number');
-require('rearmed/object');
-require('rearmed/string');
-require('rearmed/generic');
+require('rearmed-js/array');
+require('rearmed-js/number');
+require('rearmed-js/object');
+require('rearmed-js/string');
+require('rearmed-js/generic');
 
 // OR
 
 // require only the methods you want
-require('rearmed/array/reject');
-require('rearmed/array/select');
+require('rearmed-js/array/reject');
+require('rearmed-js/array/select');
 ```
 
 ### Rails
@@ -188,10 +186,6 @@ array.min(cb=null) // returns value
 
 array.minBy(cb=null) // returns value
 
-Array.range(start, end, step) // returns array 
-// Note: use on Array class, not an instance of array.
-// Typescript Note: bummer dude... you cant use Array.range() because its not possible to define static methods on existing interfaces
-
 array.reject(cb) // reutrns array
 
 array.select(cb) // returns array
@@ -208,16 +202,14 @@ array.smartExcludes(val, fromIndex=0) // returns bool
 array.sum(cb=null) // returns number
 
 array.uniq(cb=null) // returns array
+
+
+/* CLASS METHODS - Not available in Typescript */
+
+Array.range(startNumber, endNumber, step=1) // returns array
 ```
 
 ## Object (Hash)
-
-Note: if requiring Object patches individually you must first require `object/rearmed`. Example:
-
->```
->require('rearmed/object/rearmed');
->require('rearmed-js/object/select');
->```
 
 ```javascript
 var obj = {};
@@ -260,15 +252,27 @@ obj.reject(cb) // returns object
 obj.select(cb) // returns object, known to cause error with React select elements
 
 obj.values() // returns array
+```
 
+When requiring Object patches individually you must first require `object/rearmed`. Example:
+
+```javascript
+require('rearmed-js/object/rearmed');
+require('rearmed-js/object/select');
+require('rearmed-js/object/reject');
+```
+
+The following methods are used under the hood to provide patches to Object. I have exposed these methods publicly so that you can add your own custom methods to `rearmed()` objects. These methods are available on Object after requiring either of these: `rearmed-js/object/rearmed` or `rearmed-js`
+
+```javascript
 Object.rearmed.add({
-  myNewMethod: function(){
+  myMethodName: function(){
     // add new method to rearmed() objects
   }
 );
 
 Object.rearmed.remove(
-  myNewMethod: function(){
+  myMethodName: function(){
     // remove method from rearmed() objects
   }
 );
@@ -337,14 +341,17 @@ str.toBool() // returns bool
 str.upcase() // returns string
 ```
 
-# Browser / NodeJS Support
+# Browser / NodeJS / Typescript Support
 - Browser support is IE 9+ and everything else. Use the files in the `dist` folder if you need pre-minified files.
 - Array `find` doesnt work properly in old NodeJS 0.x and iojs.
 - String `empty` doesnt work properly in old NodeJS 0.x.
+- Typescript is supported however it does not support Class methods because its not possible to define static methods on existing interfaces such as Array. At this time the only effected method is `Array.range`
+
+# Typescript Note
 
 # Contributing
 - I recommend discussing your intentions via an issue before making a PR as they are very concious design choices that must go into this library.
-- Only edit js files from src/ and test/ folders.
+- Only edit js files from `src/` and `test/` folders.
 - Use the gulp task: `gulp` to run the build after making your changes.
 - Testing these methods are simple & easy. PR's should include tests.
 
