@@ -347,8 +347,6 @@ str.upcase() // returns string
 - String `empty` doesnt work properly in old NodeJS 0.x.
 - Typescript is supported however it does not support Class methods because its not possible to define static methods on existing interfaces such as Array. At this time the only effected method is `Array.range`
 
-# Typescript Note
-
 # Contributing
 - I recommend discussing your intentions via an issue before making a PR as they are very concious design choices that must go into this library.
 - Only edit js files from `src/` and `test/` folders.
