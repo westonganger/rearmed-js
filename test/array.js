@@ -63,22 +63,22 @@ describe('Array', function() {
 
     it('2', function() {
       var x = [1,null,'',undefined,5];
-      assert.deepEqual(x.compact(), [1,'',5]);
+      assert.deepEqual(x.compact(), [1,5]);
     });
 
     it('3', function() {
       var x = [false,null,0,'',undefined];
-      assert.deepEqual(x.compact(), [false, '', 0]);
+      assert.deepEqual(x.compact(), [false, 0]);
     });
 
     it('4', function() {
       var x = [false,null,0,'',undefined];
-      assert.deepEqual(x.compact([null, undefined, '']), [false, 0]);
+      assert.deepEqual(x.compact([null, undefined]), [false, 0, '']);
     });
 
     it('Accepts splat arguments', function() {
-      var x = [false,null,0,'',undefined];
-      assert.deepEqual(x.compact("", null, undefined), [false, 0]);
+      var x = [false,null,0,undefined,''];
+      assert.deepEqual(x.compact(null, undefined), [false, 0, '']);
     });
   });
 

@@ -83,7 +83,7 @@ describe('Object', function() {
     });
 
     it('2', function() {
-      var x = {foo: 'foo', bar: null};
+      var x = {foo: 'foo', bar: null, test: ''};
       x = x.rearmed();
       assert.deepEqual(x.compact(), {foo: 'foo'});
     });
@@ -91,13 +91,13 @@ describe('Object', function() {
     it('3', function() {
       var x = {foo: 'foo', bar: ''};
       x = x.rearmed();
-      assert.deepEqual(x.compact(null, undefined, ''), {foo: 'foo'});
+      assert.deepEqual(x.compact(null, undefined), {foo: 'foo', bar: ''});
     });
 
     it('Accepts array argument', function() {
       var x = {foo: 'foo', bar: undefined, foo2: ''};
       x = x.rearmed();
-      assert.deepEqual(x.compact(['']), {foo: 'foo', bar: undefined});
+      assert.deepEqual(x.compact([null, undefined]), {foo: 'foo', foo2: ''});
     });
   });
 

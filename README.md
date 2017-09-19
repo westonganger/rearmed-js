@@ -150,7 +150,7 @@ array.any(cb=null) // returns bool
 
 array.all(cb=null) // returns bool
 
-array.compact(badValues=[null, undefined]) // returns array, accepts array or splat arguments
+array.compact(badValues=[null, undefined, '']) // returns array, accepts array or splat arguments
   
 array.dig(*args) // returns value, accepts splat arguments or array
 
@@ -223,7 +223,7 @@ obj.all(cb=null) // returns bool
 
 obj.any(cb=null) // returns bool
 
-obj.compact(badValues=[null, undefined]) // returns object, accepts array or splat arguments
+obj.compact(badValues=[null, undefined, '']) // returns object, accepts array or splat arguments
 
 obj.dig(*args) // returns object, accepts splat arguments or array
 

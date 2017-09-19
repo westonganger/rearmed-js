@@ -93,7 +93,7 @@ require('./array/uniq');
     var bad;
 
     if(arguments.length === 0){
-      bad = [null, undefined];
+      bad = [null, undefined, ''];
     }else if(arguments.length === 1){
       if(Array.isArray(arguments[0])){
         bad = arguments[0];
@@ -1162,7 +1162,7 @@ require('./object/values');
     compact: function(bad){
       var bad;
       if(arguments.length === 0){
-        bad = [null, undefined];
+        bad = [null, undefined, ''];
       }else if(arguments.length === 1){
         if(Array.isArray(arguments[0])){
           bad = arguments[0];

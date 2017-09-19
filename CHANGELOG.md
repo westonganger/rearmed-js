@@ -1,5 +1,7 @@
 # Changelog
 
+- `v2.0.1` - Sept 19 ,2017
+  * Change default argument for `Array.compact` and `Object.compact` from `[null, undefined]` to `[null, undefined, '']`
 - `v2.0.0` - Sept 2, 2017
   * Make all Object patches  much safer by moving them under `Object.prototype.rearmed()` and `Object.rearmed` method to fix issue #2
   * Add `Object#rearmed.add()` and `Object.rearmed.remove()` methods for adding or removing methods to rearmed objects

@@ -3,6 +3,7 @@ sudo: false
 cache: yarn
 node_js:
   - "node"
+  - "8"
   - "7"
   - "6"
   - "5"
