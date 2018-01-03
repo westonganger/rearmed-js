@@ -348,10 +348,10 @@ str.upcase() // returns string
 - Typescript is supported however it does not support Class methods because its not possible to define static methods on existing interfaces such as Array. At this time the only effected method is `Array.range`
 
 # Contributing
-- I recommend discussing your intentions via an issue before making a PR as they are very concious design choices that must go into this library.
+- I recommend discussing your intentions via an issue before making a PR because there are very concious design choices that must go into this library.
 - Only edit js files from `src/` and `test/` folders.
 - Use the gulp task: `gulp` to run the build after making your changes.
-- Testing these methods are simple & easy. PR's should include tests.
+- PR's should include tests. Testing these methods are simple & easy, check the test folder to see how it works.
 
 # Credits
 Created by Weston Ganger - [@westonganger](https://github.com/westonganger)
