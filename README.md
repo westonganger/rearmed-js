@@ -1,4 +1,8 @@
-# Rearmed-JS [![Build Status](https://api.travis-ci.org/westonganger/rearmed-js.svg?branch=master)](https://travis-ci.org/westonganger/rearmed-js)
+# Rearmed-JS
+<a href="https://badge.fury.io/js/rearmed-js" target="_blank"><img height="21" style='border:0px;height:21px;' border='0' src="https://badge.fury.io/js/rearmed-js.svg" alt="NPM Version"></a>
+<a href='https://travis-ci.org/westonganger/rearmed-js' target='_blank'><img height='21' style='border:0px;height:21px;' src='https://api.travis-ci.org/westonganger/rearmed-js.svg?branch=master' border='0' alt='Build Status' /></a>
+<a href='https://www.npmjs.org/package/rearmed-js' target='_blank'><img height='21' style='border:0px;height:21px;' src='https://img.shields.io/npm/dt/rearmed-js.svg?label=NPM+Downloads' border='0' alt='NPM Downloads' /></a>
+<a href='https://ko-fi.com/A5071NK' target='_blank'><img height='22' style='border:0px;height:22px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=a' border='0' alt='Buy Me a Coffee' /></a> 
 
 This library is a collection of helpful methods and monkey patches for Arrays, Objects, Numbers, and Strings in Javascript. Start writing your Javascript like you write your Ruby code! 
 
