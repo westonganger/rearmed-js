@@ -360,8 +360,6 @@ str.upcase() // returns string
 # Credits
 Created by Weston Ganger - [@westonganger](https://github.com/westonganger)
 
-For any consulting or contract work please contact me via my company website: [Solid Foundation Web Development](https://solidfoundationwebdev.com)
-
 ## Similar Libraries Created By Me
 - [JS-Try](https://github.com/westonganger/js-try)
 - [Rearmed-CSS](https://github.com/westonganger/rearmed-css)
