@@ -1,6 +1,6 @@
 # Rearmed-JS
 <a href="https://badge.fury.io/js/rearmed-js" target="_blank"><img height="21" style='border:0px;height:21px;' border='0' src="https://badge.fury.io/js/rearmed-js.svg" alt="NPM Version"></a>
-<a href='https://github.com/westonganger/rearmed-js/actions' target='_blank'><img src="https://github.com/westonganger/rearmed-js/workflows/Tests/badge.svg" style="max-width:100%;" height='21' style='border:0px;height:21px;' border='0' alt="CI Status"></a>
+<a href='https://github.com/westonganger/rearmed-js/actions' target='_blank'><img src="https://github.com/westonganger/rearmed-js/actions/workflows/test.yml/badge.svg?branch=master" style="max-width:100%;" height='21' style='border:0px;height:21px;' border='0' alt="CI Status"></a>
 <a href='https://www.npmjs.org/package/rearmed-js' target='_blank'><img height='21' style='border:0px;height:21px;' src='https://img.shields.io/npm/dt/rearmed-js.svg?label=NPM+Downloads' border='0' alt='NPM Downloads' /></a>
 <a href='https://ko-fi.com/A5071NK' target='_blank'><img height='22' style='border:0px;height:22px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=a' border='0' alt='Buy Me a Coffee' /></a> 
 
