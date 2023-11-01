@@ -1,9 +1,8 @@
 name: Test
 on:
   push:
-    branches: ['*']
+    branches: ['master']
   pull_request:
-    branches: ['*']
 
 jobs:
   test:
@@ -13,16 +12,14 @@ jobs:
       matrix:
         include:
           ### TEST MULTIPLE JS VERSIONS
-          - js_version: 10
-          - js_version: 12
-          - js_version: 14
-          - js_version: 16
+          - js_version: "12" # Oldest testable version
+          - js_version: "latest"
 
     steps:
       - uses: actions/checkout@v2
 
       - name: Install Javascript
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: "${{ matrix.js_version }}"
 
